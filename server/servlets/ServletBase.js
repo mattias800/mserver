@@ -1,6 +1,6 @@
 creos.ServletBase = Class.extend({
 
-    init:function (request, response) {
+    init : function(request, response) {
         this.request = request;
         this.response = response;
         if (this.request == undefined) throw "Servlets constructor must get request as first parameter.";
@@ -8,19 +8,19 @@ creos.ServletBase = Class.extend({
         this.postInit();
     },
 
-    postInit:function () {
+    postInit : function() {
 
     },
 
-    execute:function () {
+    execute : function() {
         throw "ServletBase subclasses must override writeResponse(response)";
     },
 
-    redirectTo:function (servletClass, afterDone) {
+    redirectTo : function(servletClass, afterDone) {
         this.createRedirectionServlet(servletClass).execute(afterDone);
     },
 
-    createRedirectionServlet:function (clazzConfuseXyz) {
+    createRedirectionServlet : function(clazzConfuseXyz) {
         if (clazzConfuseXyz == undefined) {
             console.trace();
             throw "ServletBase.createRedirectionServlet() must get servlet Class as parameter. Got undefined.";

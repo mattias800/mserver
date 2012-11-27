@@ -1,14 +1,14 @@
 creos.RpcServlet = creos.ServletBase.extend({
 
-    postInit:function () {
-        this.rpcHeader = {'Content-Type':'application/json'};
+    postInit : function() {
+        this.rpcHeader = {'Content-Type' : 'application/json'};
     },
 
-    getRpcAction:function (name) {
+    getRpcAction : function(name) {
         return creos.rpc[name]
     },
 
-    execute:function (afterDone) {
+    execute : function(afterDone) {
         var request = this.request;
         var response = this.response;
 
@@ -27,13 +27,13 @@ creos.RpcServlet = creos.ServletBase.extend({
             return;
         }
 
-        var actionObj = new ActionClass(request, response);
+        var actionObj = new ActionClass.extend(request, response);
 
         var url_parts = url.parse(request.url, true);
         var urlParameter = url_parts.query;
 
         try {
-            var result = actionObj.execute(urlParameter, function (result) {
+            var result = actionObj.execute(urlParameter, function(result) {
 
                 // TODO: Validate result
 
@@ -43,9 +43,9 @@ creos.RpcServlet = creos.ServletBase.extend({
                 debugLog("Executing RPC action DONE!", result);
 
                 var r = {
-                    code:result.code ? result.code : 200,
-                    header:result.header ? result.header : this.rpcHeader,
-                    body:result.response.toObj()
+                    code : result.code ? result.code : 200,
+                    header : result.header ? result.header : this.rpcHeader,
+                    body : result.response.toObj()
                 };
 
                 debugLog("r", r);

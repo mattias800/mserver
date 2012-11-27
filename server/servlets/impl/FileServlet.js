@@ -1,11 +1,11 @@
 creos.FileServlet = creos.ServletBase.extend({
 
-    init:function (request, response, filename) {
+    init : function(request, response, filename) {
         this._super(request, response);
         this.filename = filename;
     },
 
-    fileExists:function (pathToFile, cb) {
+    fileExists : function(pathToFile, cb) {
         if (typeof fs.exists == "function") {
             fs.exists(pathToFile, cb);
         } else if (typeof path.exists) {
@@ -15,7 +15,7 @@ creos.FileServlet = creos.ServletBase.extend({
         }
     },
 
-    execute:function (afterDone) {
+    execute : function(afterDone) {
         var request = this.request;
         var response = this.response;
         var filename = this.filename;
@@ -27,26 +27,26 @@ creos.FileServlet = creos.ServletBase.extend({
 
         var fullPath = pathName; //path.join(process.cwd(), pathName);
 
-        this.fileExists(fullPath, function (exists) {
+        this.fileExists(fullPath, function(exists) {
             if (!exists) {
                 debugLog("File does not exist, redirecting to NotFoundServlet: " + pathName);
                 that.createRedirectionServlet(creos.NotFoundServlet).execute(afterDone);
             } else {
                 var contentHandler = new creos.ContentHandler();
 
-                fs.readFile(fullPath, "binary", function (err, file) {
+                fs.readFile(fullPath, "binary", function(err, file) {
                     if (err) {
                         debugLog("File exists, but cannot read it: " + pathName);
                         afterDone({
-                            code:500,
-                            header:{"Content-Type":"text/plain"},
-                            body:err + "\n"
+                            code : 500,
+                            header : {"Content-Type" : "text/plain"},
+                            body : err + "\n"
                         });
                     } else {
                         afterDone({
-                            code:200,
-                            header:contentHandler.getHeaderForPath(pathName),
-                            fileBuffer:file
+                            code : 200,
+                            header : contentHandler.getHeaderForPath(pathName),
+                            fileBuffer : file
                         });
                     }
 

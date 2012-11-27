@@ -1,15 +1,15 @@
 creos.rpcGetGame = creos.RpcActionBase.extend({
 
-    execute:function (urlParameter, afterDone) {
+    execute : function(urlParameter, afterDone) {
         var game = {
-            id:"test",
-            scripts:{
-                load:"startGame();"
+            id : "test",
+            scripts : {
+                load : "startGame();"
             }
         };
 
         afterDone({
-            response:creos.RpcResponse.createOkWithModel(game)
+            response : creos.RpcResponse.createOkWithModel(game)
         });
     }
 

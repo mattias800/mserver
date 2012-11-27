@@ -2,7 +2,8 @@ var http = require('http');
 var fs = require('fs');
 var url = require("url");
 var path = require("path");
-//var Class = require("class.js");
+var vm = require("vm");
+var Class = require("resig-class");
 
 var creos = {};
 creos.debugEnabled = true;
@@ -15,7 +16,7 @@ function debugLog() {
 
 function includeJsFile(pathToJsFileXyzConfuse) {
     // pathToJsFileXyzConfuse since that variable will be in the scope of eval function.
-    eval(fs.readFileSync(pathToJsFileXyzConfuse) + '');
+    eval(fs.readFileSync(pathToJsFileXyzConfuse) + '', 'utf8');
 }
 
 function includeJsFiles(pathList) {
@@ -26,7 +27,7 @@ function includeJsFiles(pathList) {
 
 var includes = [
 
-    "Class.js",
+    //"Class.js",
 
     "server/ContentHandler.js",
     "server/Router.js",
