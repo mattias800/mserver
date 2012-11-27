@@ -1,10 +1,10 @@
 creos.Router = Class.extend({
 
-    init:function () {
+    init : function() {
 
     },
 
-    createServlet:function (request, response, path) {
+    createServlet : function(request, response, path) {
         // Which servlet to use is controlled via the path.
         var s = path.split("/");
 
@@ -23,6 +23,11 @@ creos.Router = Class.extend({
                 // Path: /
                 debugLog("Creating FileServlet for empty path.");
                 return new creos.FileServlet(request, response, "index.html");
+
+            case "page":
+                // Path: /
+                debugLog("Creating PageServlet for page path.");
+                return new creos.PageServlet(request, response, new creos.TestPage());
 
             default:
                 // Path: * (everything else)
