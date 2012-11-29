@@ -1,8 +1,8 @@
-creos.RpcResponse = Class.extend({
+var RpcResponse = Class.extend({
 
     init : function(args) {
         this.model = args.model;
-        debugLog("OK this.model", this.model);
+        console.log("OK this.model", this.model);
         this.message = args.message;
         this.resultType = args.resultType;
         this.error = args.error;
@@ -19,10 +19,12 @@ creos.RpcResponse = Class.extend({
 
 });
 
-creos.RpcResponse.createOk = function() {
+RpcResponse.createOk = function() {
     return new creos.RpcResponse({resultType : "OK"});
 };
 
-creos.RpcResponse.createOkWithModel = function(model) {
-    return new creos.RpcResponse({model : model, resultType : "OK"});
+RpcResponse.createOkWithModel = function(model) {
+    return new RpcResponse({model : model, resultType : "OK"});
 };
+
+module.exports = RpcResponse;

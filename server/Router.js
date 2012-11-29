@@ -1,4 +1,8 @@
-creos.Router = Class.extend({
+var FileServlet = require("./servlets/impl/FileServlet.js");
+var PageServlet = require("./servlets/impl/PageServlet.js");
+var RpcServlet = require("./servlets/impl/RpcServlet.js");
+
+var Router = Class.extend({
 
     init : function() {
 
@@ -11,30 +15,32 @@ creos.Router = Class.extend({
         switch (s[1]) {
             case "rpc":
                 // Path: /rpc/*
-                debugLog("Creating RpcServlet for rpc prefix.");
-                return new creos.RpcServlet(request, response, path);
+                console.log("Creating RpcServlet for rpc prefix.");
+                return new RpcServlet(request, response, path);
 
             case undefined:
                 // Path: /
-                debugLog("Creating FileServlet for / path.");
-                return new creos.FileServlet(request, response, "index.html");
+                console.log("Creating FileServlet for / path.");
+                return new FileServlet(request, response, "index.html");
 
             case "":
                 // Path: /
-                debugLog("Creating FileServlet for empty path.");
-                return new creos.FileServlet(request, response, "index.html");
+                console.log("Creating FileServlet for empty path.");
+                return new FileServlet(request, response, "index.html");
 
             case "page":
                 // Path: /
-                debugLog("Creating PageServlet for page path.");
-                return new creos.PageServlet(request, response, new creos.TestPage());
+                console.log("Creating PageServlet for page path.");
+                return new PageServlet(request, response, new creos.TestPage());
 
             default:
                 // Path: * (everything else)
-                debugLog("Creating FileServlet for everything else.");
-                return new creos.FileServlet(request, response); // No explicit filename.
+                console.log("Creating FileServlet for everything else.");
+                return new FileServlet(request, response); // No explicit filename.
 
         }
     }
 
 });
+
+module.exports = Router;

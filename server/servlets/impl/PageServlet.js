@@ -1,4 +1,6 @@
-creos.PageServlet = creos.ServletBase.extend({
+var ServletBase = require("../ServletBase.js");
+
+var PageServlet = ServletBase.extend({
 
     init : function(request, response, page) {
         this._super(request, response);
@@ -17,3 +19,5 @@ creos.PageServlet = creos.ServletBase.extend({
 
     }
 });
+
+module.exports = PageServlet;

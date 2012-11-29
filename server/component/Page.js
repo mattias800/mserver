@@ -1,4 +1,6 @@
-creos.Page = creos.Component.extend({
+var Component = require("./Component.js");
+
+var Page = Component.extend({
 
     init : function() {
         this._super();
@@ -17,7 +19,7 @@ creos.Page = creos.Component.extend({
         this.cssReferenceList.push(ref);
     },
 
-    setParent : function(p) {
+    _setParent : function(p) {
         throw "May not add Page as a child.";
     },
 
@@ -26,5 +28,6 @@ creos.Page = creos.Component.extend({
         return this._getMcomponent().render().html;
     }
 
-
 });
+
+module.exports = Page;

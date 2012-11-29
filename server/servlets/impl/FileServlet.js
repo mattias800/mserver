@@ -1,4 +1,12 @@
-creos.FileServlet = creos.ServletBase.extend({
+var fs = require('fs');
+var path = require("path");
+var url = require("url");
+
+var ServletBase = require("./../ServletBase.js");
+var NotFoundServlet = require("./NotFoundServlet.js");
+var ContentHandler = require("../../ContentHandler.js");
+
+var FileServlet = ServletBase.extend({
 
     init : function(request, response, filename) {
         this._super(request, response);
@@ -30,9 +38,9 @@ creos.FileServlet = creos.ServletBase.extend({
         this.fileExists(fullPath, function(exists) {
             if (!exists) {
                 debugLog("File does not exist, redirecting to NotFoundServlet: " + pathName);
-                that.createRedirectionServlet(creos.NotFoundServlet).execute(afterDone);
+                that.createRedirectionServlet(NotFoundServlet).execute(afterDone);
             } else {
-                var contentHandler = new creos.ContentHandler();
+                var contentHandler = new ContentHandler();
 
                 fs.readFile(fullPath, "binary", function(err, file) {
                     if (err) {
@@ -57,3 +65,5 @@ creos.FileServlet = creos.ServletBase.extend({
     }
 
 });
+
+module.exports = FileServlet;

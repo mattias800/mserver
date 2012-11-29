@@ -1,4 +1,6 @@
-creos.Component = Class.extend({
+var mcomponent = require('../mcomponent.js');
+
+var Component = Class.extend({
 
     init : function() {
 
@@ -35,10 +37,10 @@ creos.Component = Class.extend({
 
     addChild : function(id, c) {
         this.children[id] = c;
-        c.setParent(this);
+        c._setParent(this);
     },
 
-    setParent : function(p) {
+    _setParent : function(p) {
         this.parent = p;
     },
 
@@ -67,3 +69,5 @@ creos.Component = Class.extend({
 
 
 });
+
+module.exports = Component;

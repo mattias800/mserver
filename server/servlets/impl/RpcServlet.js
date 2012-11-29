@@ -1,4 +1,7 @@
-creos.RpcServlet = creos.ServletBase.extend({
+var ServletBase = require("../ServletBase.js");
+var NoSuchRpcServlet = require("./NoSuchRpcServlet.js");
+
+RpcServlet = ServletBase.extend({
 
     postInit : function() {
         this.rpcHeader = {'Content-Type' : 'application/json'};
@@ -23,7 +26,7 @@ creos.RpcServlet = creos.ServletBase.extend({
 
         if (ActionClass == undefined) {
             // No such RPC exists.
-            this.redirectTo(creos.NoSuchRpcServlet, afterDone);
+            this.redirectTo(NoSuchRpcServlet, afterDone);
             return;
         }
 
@@ -57,3 +60,5 @@ creos.RpcServlet = creos.ServletBase.extend({
     }
 
 });
+
+module.exports = RpcServlet;

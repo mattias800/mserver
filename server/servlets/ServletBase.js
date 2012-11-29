@@ -1,4 +1,4 @@
-creos.ServletBase = Class.extend({
+var ServletBase = Class.extend({
 
     init : function(request, response) {
         this.request = request;
@@ -34,3 +34,5 @@ creos.ServletBase = Class.extend({
 
 
 });
+
+module.exports = ServletBase;

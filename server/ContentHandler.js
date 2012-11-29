@@ -1,4 +1,4 @@
-creos.ContentHandler = Class.extend({
+var ContentHandler = Class.extend({
 
     getHeaderForPath:function (path) {
         var s = path.split(".");
@@ -52,3 +52,5 @@ creos.ContentHandler = Class.extend({
     }
 
 });
+
+module.exports = ContentHandler;

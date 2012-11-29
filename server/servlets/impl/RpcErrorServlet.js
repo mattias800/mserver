@@ -1,4 +1,6 @@
-creos.RpcErrorServlet = creos.ServletBase.extend({
+var ServletBase = require("../ServletBase.js");
+
+var RpcErrorServlet = ServletBase.extend({
 
     execute : function(afterDone) {
         var servlet = new creos.FileServlet(this.request, this.response, "error.html");
@@ -8,3 +10,5 @@ creos.RpcErrorServlet = creos.ServletBase.extend({
     }
 
 });
+
+module.exports = RpcErrorServlet;

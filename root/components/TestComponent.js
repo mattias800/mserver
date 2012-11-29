@@ -1,4 +1,6 @@
-creos.TestComponent = creos.Component.extend({
+var Component = undefined;
+
+var TestComponent = Component.extend({
 
     prepare : function() {
         this.setView("root/components/TestComponent.html");
@@ -7,3 +9,5 @@ creos.TestComponent = creos.Component.extend({
     }
 
 });
+
+module.exports = TestComponent;

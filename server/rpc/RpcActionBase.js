@@ -1,6 +1,4 @@
-creos.rpc = {};
-
-creos.RpcActionBase = Class.extend({
+var RpcActionBase = Class.extend({
 
     init : function(request, response) {
         this.request = request;
@@ -13,3 +11,5 @@ creos.RpcActionBase = Class.extend({
 
 
 });
+
+module.exports = RpcActionBase;

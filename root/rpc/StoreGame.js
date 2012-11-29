@@ -1,4 +1,4 @@
-creos.rpc.StoreGame = creos.RpcActionBase.extend({
+var StoreGame = RpcActionBase.extend({
 
     execute : function(urlParameter, afterDone) {
 

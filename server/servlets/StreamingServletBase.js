@@ -1,4 +1,4 @@
-creos.StreamingServletBase = creos.ServletBase.extend({
+var StreamingServletBase = creos.ServletBase.extend({
 
 
 });
