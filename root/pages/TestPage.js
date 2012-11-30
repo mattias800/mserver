@@ -1,4 +1,5 @@
-var TestComponent = undefined;
+var Page = require("../../server/mserver.js").Page;
+var TestComponent = require("../components/TestComponent.js").Component;
 
 var TestPage = Page.extend({
 

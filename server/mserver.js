@@ -6,6 +6,14 @@ var Class = require("resig-class");
 var Router = require("./Router.js");
 var Component = require("./component/Component.js");
 var Page = require("./component/Page.js");
+var RpcActionBase = require("./rpc/RpcActionBase.js");
+var RpcResponse = require("./rpc/RpcResponse.js");
+
+if (Router == undefined) throw "Unable to include Router.";
+if (Component == undefined) throw "Unable to include Component.";
+if (Page == undefined) throw "Unable to include Page.";
+if (RpcActionBase == undefined) throw "Unable to include RpcActionBase.";
+if (RpcResponse == undefined) throw "Unable to include RpcResponse.";
 
 var Server = Class.extend({
 
@@ -17,7 +25,7 @@ var Server = Class.extend({
         if (!this.router) throw "Unable to create Router.";
 
         //  Get the environment variables we need.
-        var ipaddr = process.env.OPENSHIFT_INTERNAL_IP;
+        var ipaddr = process.env.OPENSHIFT_INTERNAL_IP || "127.0.0.1";
         var port = process.env.OPENSHIFT_INTERNAL_PORT || 8090;
 
         http.createServer(
@@ -57,4 +65,6 @@ var Server = Class.extend({
 module.exports.Server = Server;
 module.exports.Component = Component;
 module.exports.Page = Page;
+module.exports.RpcActionBase = RpcActionBase;
+module.exports.RpcResponse = RpcResponse;
 

@@ -1,4 +1,4 @@
-var Component = undefined;
+var Component = require("../../server/mserver.js").Component;
 
 var TestComponent = Component.extend({
 

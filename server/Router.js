@@ -2,6 +2,8 @@ var FileServlet = require("./servlets/impl/FileServlet.js");
 var PageServlet = require("./servlets/impl/PageServlet.js");
 var RpcServlet = require("./servlets/impl/RpcServlet.js");
 
+var TestPage = require("../root/pages/TestPage.js");
+
 var Router = Class.extend({
 
     init : function() {
@@ -31,7 +33,7 @@ var Router = Class.extend({
             case "page":
                 // Path: /
                 console.log("Creating PageServlet for page path.");
-                return new PageServlet(request, response, new creos.TestPage());
+                return new PageServlet(request, response, new TestPage());
 
             default:
                 // Path: * (everything else)
