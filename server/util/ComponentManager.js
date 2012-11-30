@@ -24,6 +24,23 @@ var ComponentManager = Class.extend({
 
         this.includeAllFiles();
 
+        this.pageInstances = {};
+        this.componentInstances = {};
+
+        this.instantiateAll();
+    },
+
+    instantiateAll : function() {
+        console.log("instantiateAll");
+        for (var name in this.sandbox.pages) {
+            console.log("Instantiating page: " + name);
+            this.pageInstances[name] = new this.sandbox.pages[name];
+        }
+        for (var name in this.sandbox.components) {
+            console.log("Instantiating component: " + name);
+            this.componentInstances[name] = new this.sandbox.components[name];
+        }
+        console.log("All pages and components instantiated.");
     },
 
     getSandBox : function() {

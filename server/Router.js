@@ -17,6 +17,7 @@ var Router = Class.extend({
     },
 
     addPagePath : function(path, page) {
+        console.log("addPagePath", path, page);
         this.pathPageMap[path] = page;
     },
 

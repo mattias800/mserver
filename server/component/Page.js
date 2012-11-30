@@ -9,6 +9,12 @@ var Page = Component.extend({
         this.jsReferenceList = [];
         this.cssReferenceList = [];
 
+        if (this.path) this._setPath(this.path);
+    },
+
+    _setPath : function(path) {
+        // TODO: router is not defined. Pass it as argument to constructor?
+        router.addPagePath(path, this);
     },
 
     addJsReference : function(ref) {
