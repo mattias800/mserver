@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="159a707e-54b7-4e53-8664-7dbf188d6e78" name="Default" comment="Added Component.setPath(..)&#10;NotFoundServlet isn't working at the moment.&#10;Renamed Includer to ComponentManager.">
+    <list default="true" id="159a707e-54b7-4e53-8664-7dbf188d6e78" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mserver.iws" afterPath="$PROJECT_DIR$/mserver.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/pages/TestPage.js" afterPath="$PROJECT_DIR$/root/pages/TestPage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/Router.js" afterPath="$PROJECT_DIR$/server/Router.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/component/Component.js" afterPath="$PROJECT_DIR$/server/component/Component.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/component/Page.js" afterPath="$PROJECT_DIR$/server/component/Page.js" />
@@ -68,7 +67,7 @@
       <file leaf-file-name="TestPage.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/root/pages/TestPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
+            <state line="2" column="19" selection-start="44" selection-end="51" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -86,7 +85,7 @@
       <file leaf-file-name="ComponentManager.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/util/ComponentManager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="9" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.0">
+            <state line="1" column="0" selection-start="0" selection-end="24" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -104,34 +103,34 @@
       <file leaf-file-name="Router.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/Router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="47" selection-start="633" selection-end="633" vertical-scroll-proportion="0.0">
+            <state line="28" column="0" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Component.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="mserver.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/mserver.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="0" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Component.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/component/Component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0">
+            <state line="1" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.01867995">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Page.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Page.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/component/Page.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="31" selection-start="305" selection-end="305" vertical-scroll-proportion="0.17355372">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RpcActionBase.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/rpc/RpcActionBase.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="31" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0">
+            <state line="17" column="0" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -186,11 +185,11 @@
         <option value="$PROJECT_DIR$/server/servlets/impl/FileServlet.js" />
         <option value="$PROJECT_DIR$/server/servlets/impl/NotFoundServlet.js" />
         <option value="$PROJECT_DIR$/server/util/Includer.js" />
-        <option value="$PROJECT_DIR$/server/Router.js" />
-        <option value="$PROJECT_DIR$/server/util/ComponentManager.js" />
-        <option value="$PROJECT_DIR$/server/component/Component.js" />
         <option value="$PROJECT_DIR$/root/pages/TestPage.js" />
+        <option value="$PROJECT_DIR$/server/util/ComponentManager.js" />
         <option value="$PROJECT_DIR$/server/component/Page.js" />
+        <option value="$PROJECT_DIR$/server/Router.js" />
+        <option value="$PROJECT_DIR$/server/component/Component.js" />
       </list>
     </option>
   </component>
@@ -553,7 +552,11 @@
       <created>1354280619963</created>
       <updated>1354280619963</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Pages and Components are instantiated by ComponentManager. They need to register path as well, in Router.">
+      <created>1354281579784</created>
+      <updated>1354281579784</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -563,7 +566,7 @@
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902184" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32902184" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -622,7 +625,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Component.setPath(..)&#10;NotFoundServlet isn't working at the moment.&#10;Renamed Includer to ComponentManager." />
+    <option name="LAST_COMMIT_MESSAGE" value="Pages and Components are instantiated by ComponentManager. They need to register path as well, in Router." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -638,6 +641,7 @@
     <MESSAGE value="Using require(..) for all dependencies. This makes Pages and Components not work at the moment." />
     <MESSAGE value="Components and Pages are now read automatically, no need to include them using require(..) or any other method.&#10;Includer keeps a map with all pages and components.&#10;server.js now only runs require(mserver) and then starts the server." />
     <MESSAGE value="Added Component.setPath(..)&#10;NotFoundServlet isn't working at the moment.&#10;Renamed Includer to ComponentManager." />
+    <MESSAGE value="Pages and Components are instantiated by ComponentManager. They need to register path as well, in Router." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -719,13 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/mserver.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/rpc/RpcActionBase.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="31" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" />
@@ -759,37 +756,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/component/Page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="368" selection-end="368" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/mserver.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="835" selection-end="835" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/Router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="47" selection-start="633" selection-end="633" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/util/ComponentManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="9" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/component/Component.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="382" selection-end="382" vertical-scroll-proportion="0.0">
+        <state line="28" column="0" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/root/pages/TestPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
+        <state line="2" column="19" selection-start="44" selection-end="51" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/component/Page.js">
+    <entry file="file://$PROJECT_DIR$/server/util/ComponentManager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="31" selection-start="305" selection-end="305" vertical-scroll-proportion="0.17355372">
+        <state line="1" column="0" selection-start="0" selection-end="24" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/component/Component.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.01867995">
           <folding />
         </state>
       </provider>

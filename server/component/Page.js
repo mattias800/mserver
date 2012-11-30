@@ -2,8 +2,11 @@ var Component = require("./Component.js");
 
 var Page = Component.extend({
 
-    init : function() {
-        this._super();
+    init : function(args) {
+        this._super(args);
+
+        this.manager = args.manager;
+        this.router = this.manager.getRouter();
 
         // References
         this.jsReferenceList = [];
@@ -13,8 +16,7 @@ var Page = Component.extend({
     },
 
     _setPath : function(path) {
-        // TODO: router is not defined. Pass it as argument to constructor?
-        router.addPagePath(path, this);
+        this.router.addPagePath(path, this);
     },
 
     addJsReference : function(ref) {

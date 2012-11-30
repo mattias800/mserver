@@ -34,13 +34,17 @@ var ComponentManager = Class.extend({
         console.log("instantiateAll");
         for (var name in this.sandbox.pages) {
             console.log("Instantiating page: " + name);
-            this.pageInstances[name] = new this.sandbox.pages[name];
+            this.pageInstances[name] = new this.sandbox.pages[name]({manager : this});
         }
         for (var name in this.sandbox.components) {
             console.log("Instantiating component: " + name);
-            this.componentInstances[name] = new this.sandbox.components[name];
+            this.componentInstances[name] = new this.sandbox.components[name]({manager : this});
         }
         console.log("All pages and components instantiated.");
+    },
+
+    getRouter : function() {
+        return this.router;
     },
 
     getSandBox : function() {

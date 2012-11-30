@@ -3,27 +3,33 @@ var PageServlet = require("./servlets/impl/PageServlet.js");
 var RpcServlet = require("./servlets/impl/RpcServlet.js");
 
 var TestPage = {}; //require("../root/pages/TestPage.js");
-var Includer = require("./util/ComponentManager.js");
+var ComponentManager = require("./util/ComponentManager.js");
 
 var Router = Class.extend({
 
     init : function() {
-        this.includer = new Includer({router : this});
-        this.sandbox = this.includer.sandbox;
-
-        console.log("Routers sandbox", this.sandbox);
 
         this.pathPageMap = {};
+
+        this.componentManager = new ComponentManager({router : this});
+        this.sandbox = this.componentManager.sandbox;
+
     },
 
     addPagePath : function(path, page) {
-        console.log("addPagePath", path, page);
         this.pathPageMap[path] = page;
     },
 
     createServlet : function(request, response, path) {
         // Which servlet to use is controlled via the path.
         var s = path.split("/");
+
+        console.log("this.pathPageMap", this.pathPageMap);
+        console.log("path", path);
+
+        if (this.pathPageMap[path]) {
+            return new PageServlet(request, response, this.pathPageMap[path]);
+        }
 
         switch (s[1]) {
             case "rpc":

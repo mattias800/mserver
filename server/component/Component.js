@@ -1,8 +1,10 @@
+var fs = require('fs');
+
 var mcomponent = require('../mcomponent.js');
 
 var Component = Class.extend({
 
-    init : function() {
+    init : function(args) {
 
         // Tree
         this.children = {};
