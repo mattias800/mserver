@@ -3,15 +3,21 @@ var PageServlet = require("./servlets/impl/PageServlet.js");
 var RpcServlet = require("./servlets/impl/RpcServlet.js");
 
 var TestPage = {}; //require("../root/pages/TestPage.js");
-var Includer = require("./util/Includer.js");
+var Includer = require("./util/ComponentManager.js");
 
 var Router = Class.extend({
 
     init : function() {
-        this.includer = new Includer();
+        this.includer = new Includer({router : this});
         this.sandbox = this.includer.sandbox;
 
         console.log("Routers sandbox", this.sandbox);
+
+        this.pathPageMap = {};
+    },
+
+    addPagePath : function(path, page) {
+        this.pathPageMap[path] = page;
     },
 
     createServlet : function(request, response, path) {

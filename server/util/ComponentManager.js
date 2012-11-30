@@ -2,9 +2,12 @@ var fs = require('fs');
 var path = require("path");
 var vm = require("vm");
 
-var Includer = Class.extend({
+var ComponentManager = Class.extend({
 
-    init : function() {
+    init : function(args) {
+
+        this.router = args.router;
+
         this.componentsDirectory = "./root/components/";
         this.pagesDirectory = "./root/pages/";
         this.fileList = this.findAllPageJsPaths();
@@ -14,6 +17,7 @@ var Includer = Class.extend({
         this.sandbox.Component = require("../component/Component.js");
         this.sandbox.Page = require("../component/Page.js");
         this.sandbox.console = console;
+        this.sandbox.router = this.router;
         this.sandbox.pages = {};
         this.sandbox.components = {};
         this.context = vm.createContext(this.sandbox);
@@ -75,5 +79,5 @@ var Includer = Class.extend({
 
 });
 
-module.exports = Includer;
+module.exports = ComponentManager;
 

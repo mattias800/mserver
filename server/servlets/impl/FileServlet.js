@@ -37,14 +37,14 @@ var FileServlet = ServletBase.extend({
 
         this.fileExists(fullPath, function(exists) {
             if (!exists) {
-                debugLog("File does not exist, redirecting to NotFoundServlet: " + pathName);
+                console.log("File does not exist, redirecting to NotFoundServlet: " + pathName);
                 that.createRedirectionServlet(NotFoundServlet).execute(afterDone);
             } else {
                 var contentHandler = new ContentHandler();
 
                 fs.readFile(fullPath, "binary", function(err, file) {
                     if (err) {
-                        debugLog("File exists, but cannot read it: " + pathName);
+                        console.log("File exists, but cannot read it: " + pathName);
                         afterDone({
                             code : 500,
                             header : {"Content-Type" : "text/plain"},

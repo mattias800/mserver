@@ -20,6 +20,10 @@ var Component = Class.extend({
 
     },
 
+    setPath : function(path) {
+        router.addPagePath(path, this);
+    },
+
     _prepare : function() {
         console.log("Component._prepare()");
         this.prepare();
