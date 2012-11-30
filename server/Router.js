@@ -2,12 +2,16 @@ var FileServlet = require("./servlets/impl/FileServlet.js");
 var PageServlet = require("./servlets/impl/PageServlet.js");
 var RpcServlet = require("./servlets/impl/RpcServlet.js");
 
-var TestPage = require("../root/pages/TestPage.js");
+var TestPage = {}; //require("../root/pages/TestPage.js");
+var Includer = require("./util/Includer.js");
 
 var Router = Class.extend({
 
     init : function() {
+        this.includer = new Includer();
+        this.sandbox = this.includer.sandbox;
 
+        console.log("Routers sandbox", this.sandbox);
     },
 
     createServlet : function(request, response, path) {

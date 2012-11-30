@@ -1,7 +1,4 @@
-var Page = require("../../server/mserver.js").Page;
-var TestComponent = require("../components/TestComponent.js").Component;
-
-var TestPage = Page.extend({
+pages.TestPage = Page.extend({
 
     prepare : function() {
         this.setView("root/pages/TestPage.html");
@@ -10,6 +7,3 @@ var TestPage = Page.extend({
     }
 
 });
-
-module.exports = TestPage;
-

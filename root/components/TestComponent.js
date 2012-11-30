@@ -1,6 +1,4 @@
-var Component = require("../../server/mserver.js").Component;
-
-var TestComponent = Component.extend({
+components.TestComponent = Component.extend({
 
     prepare : function() {
         this.setView("root/components/TestComponent.html");
@@ -9,5 +7,3 @@ var TestComponent = Component.extend({
     }
 
 });
-
-module.exports = TestComponent;
