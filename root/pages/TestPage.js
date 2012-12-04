@@ -1,6 +1,6 @@
-var TestComponent = undefined;
+pages.TestPage = Page.extend({
 
-var TestPage = Page.extend({
+    path : "/myPage",
 
     prepare : function() {
         this.setView("root/pages/TestPage.html");
@@ -9,6 +9,3 @@ var TestPage = Page.extend({
     }
 
 });
-
-module.exports = TestPage;
-

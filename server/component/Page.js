@@ -2,13 +2,21 @@ var Component = require("./Component.js");
 
 var Page = Component.extend({
 
-    init : function() {
-        this._super();
+    init : function(args) {
+        this._super(args);
+
+        this.manager = args.manager;
+        this.router = this.manager.getRouter();
 
         // References
         this.jsReferenceList = [];
         this.cssReferenceList = [];
 
+        if (this.path) this._setPath(this.path);
+    },
+
+    _setPath : function(path) {
+        this.router.addPagePath(path, this);
     },
 
     addJsReference : function(ref) {
