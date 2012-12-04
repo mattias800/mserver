@@ -25,12 +25,21 @@ function mcomponent(args) {
     args.afterRender = args.afterRender || undefined;
     args.throwOnError = args.throwOnError !== undefined ? args.throwOnError : false; // Used for unit testing.
 
+    var validateChild = function(id, child) {
+        if (id.indexOf(" ") >= 0) {
+            return { result : false, message : "Child id contains space. Must be alphanumeric. id = '" + id + "'"};
+        } else if (/[^a-zA-Z0-9]/.test(id)) {
+            return { result : false, message : "Child id is not alphanumeric. Must be alphanumeric. id = '" + id + "'"};
+        }
+        return { result : true };
+    };
+
     var init = function() {
         if (args.placeHolder) {
             placeHolder = args.placeHolder;
         } else if (args.placeHolderId) {
             placeHolder = document.getElementById(args.placeHolderId);
-            if (!placeHolder) throw "Unable to find placeholder in DOM with id=" + args.placeHolderId;
+            if (!placeHolder) throw "Unable to find placeholder in DOM with id = '" + args.placeHolderId + "'";
         }
 
         if (args.model) {
@@ -68,9 +77,17 @@ function mcomponent(args) {
             var html = args.clipboard[id];
             var r = buildList(html);
             if (r.error) {
-                throw "Failed to add clipboard with id='" + id + "':" + r.message;
+                throw "Failed to add clipboard with id = '" + id + "':" + r.message;
             } else {
                 executionContext.setClipboardWithName(id, buildTree(r.list));
+            }
+        }
+
+        for (var id in args.children) {
+            var child = args.children[id];
+            var v = validateChild(id, child);
+            if (!v.result) {
+                throw v.message;
             }
         }
 
@@ -153,7 +170,7 @@ function mcomponent(args) {
             }
         };
 
-        this.hasRenderError = function() {
+        this.hasRenderErrors = function() {
             return this.renderErrors.length ? true : false;
         };
 
@@ -170,9 +187,24 @@ function mcomponent(args) {
         };
 
         this.addChild = function(id, child) {
-            this.children[id] = child;
-            // Must recompile the view, with the new child included.
-            compileView();
+            var v = validateChild(id, child);
+            if (v.result) {
+                this.children[id] = child;
+            } else {
+                throw v.message;
+            }
+        };
+
+        this.hasChildWithId = function(id) {
+            return this.children[id] ? true : false;
+        };
+
+        this.removeChildWithId = function(id) {
+            this.children[id] = undefined;
+        };
+
+        this.removeAllChildren = function() {
+            this.children = {};
         };
 
         /**
@@ -833,16 +865,30 @@ function mcomponent(args) {
             hasBlock : false,
             compileTagInstance : function(tagInstance, executionContext, args) {
                 var result = new CompiledSource();
-                var name = tagInstance.tag.parameters;
-                var child = executionContext.getChildWithId(name);
-                if (child) {
-                    var childVar = getUncompiledVariableName("childComponent");
-                    result.push("var " + childVar + " = executionContext.getChildWithId(" + encodeStringToJsString(name) + ")");
-                    result.push("executionContext.pushModel(" + childVar + ".getModel())");
-                    result.pushCompiledSource(child._getView().template.getBodySource());
-                    result.push("executionContext.pop()");
+                var ss = tagInstance.tag.parameters.split(" ");
+                var name = ss[0];
+                var required = true;
+                var invalidParameter = false;
+                var parameter;
+                if (ss.length > 0) {
+                    parameter = ss[1];
+                    if (parameter) {
+                        if (parameter == "notrequired") required = false;
+                        else invalidParameter = true;
+                    }
+                }
+                if (invalidParameter) {
+                    result.pushRenderError("Invalid parameter = '" + parameter + "'");
                 } else {
-                    result.pushRenderError("Has no child component with id=" + name);
+                    var childVar = getUncompiledVariableName("childComponent");
+                    result.push("var " + childVar + " = executionContext.getChildWithId('" + name + "')");
+                    result.push("if (" + childVar + ") {");
+                    result.pushBuffer(childVar + ".render().html");
+                    if (required) {
+                        result.push("} else {");
+                        result.pushRenderError("Has no child component with id = '" + name + "'");
+                    }
+                    result.push("}");
                 }
                 return result;
             },
@@ -1006,6 +1052,14 @@ function mcomponent(args) {
 
     var _addChild = function(id, child) {
         executionContext.addChild(id, child);
+    };
+
+    var _removeAllChildren = function() {
+        executionContext.removeAllChildren();
+    };
+
+    var _removeChildWithId = function(id) {
+        executionContext.removeChildWithId(id);
     };
 
     var compileList = function() {
@@ -1839,6 +1893,14 @@ function mcomponent(args) {
             _addChild(id, child);
         },
 
+        removeAllChildren : function(id) {
+            _removeAllChildren();
+        },
+
+        removeChild : function(id) {
+            _removeChildWithId(id);
+        },
+
         setModel : function(model) {
             _setModel(model);
         },
@@ -1882,6 +1944,10 @@ function mcomponent(args) {
 
             return this._afterRender();
 
+        },
+
+        hasRenderErrors : function() {
+            return executionContext.hasRenderErrors();
         },
 
         _afterRender : function() {
@@ -2055,6 +2121,3 @@ function mcomponent(args) {
 
     };
 }
-
-module.exports = mcomponent;
-
