@@ -27,21 +27,17 @@ var Component = Class.extend({
 
     _prepare : function() {
         console.log("Component._prepare()");
-        this.setModel(undefined);
         this.prepare();
         this.mcomponent = mcomponent({viewHtml : this.viewHtml, viewFromComponent : this.viewComponent});
-        console.log("this.children", this.children);
         for (var id in this.children) {
             this.children[id]._prepare();
             var childComponent = this.children[id]._getMcomponent();
             if (!childComponent) throw "Child has no mcomponent object.";
-            console.log("childComponent", id, childComponent);
             this.mcomponent.addChild(id, childComponent);
         }
     },
 
     prepare : function() {
-        console.log("Component.prepare()");
         // Implemented by Component instances.
     },
 
@@ -49,7 +45,6 @@ var Component = Class.extend({
         this.afterPrepare();
         for (var id in this.children) {
             this.children[id]._afterPrepare();
-
         }
     },
 
@@ -85,6 +80,10 @@ var Component = Class.extend({
     },
 
     _render : function() {
+        console.log("OK RENDERING COMPONENT!");
+        console.log("children=", this.mcomponent.getChildren());
+        console.log("children.content=", this.mcomponent.getChildren().content);
+        console.log("children.hasContent=", this.mcomponent.hasChild("content"));
         this.mcomponent.setModel(this.model);
         return this.mcomponent.render().html;
     }
