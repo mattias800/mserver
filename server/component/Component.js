@@ -45,6 +45,18 @@ var Component = Class.extend({
         // Implemented by Component instances.
     },
 
+    _afterPrepare : function() {
+        this.afterPrepare();
+        for (var id in this.children) {
+            this.children[id]._afterPrepare();
+
+        }
+    },
+
+    afterPrepare : function() {
+        // Implemented by Component instances.
+    },
+
     addChild : function(id, ComponentClass) {
         var obj = new ComponentClass({componentManager : this.componentManager, viewManager : this.viewManager});
         obj._setParent(this);

@@ -11,6 +11,7 @@ var PageServlet = ServletBase.extend({
 
     execute : function(afterDone) {
         this.page._prepare();
+        this.page._afterPrepare();
         var body = this.page.render();
         afterDone({
             code : 200,
