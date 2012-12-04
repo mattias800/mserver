@@ -1,4 +1,4 @@
-pages.TestPage = Page.extend({
+pages.TestPage2 = Page.extend({
 
     path : "/myPage2",
 

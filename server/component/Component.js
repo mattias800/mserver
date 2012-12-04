@@ -30,9 +30,13 @@ var Component = Class.extend({
         this.setModel(undefined);
         this.prepare();
         this.mcomponent = mcomponent({viewHtml : this.viewHtml, viewFromComponent : this.viewComponent});
+        console.log("this.children", this.children);
         for (var id in this.children) {
             this.children[id]._prepare();
-            this.mcomponent.addChild(id, this.children[id]._getMcomponent());
+            var childComponent = this.children[id]._getMcomponent();
+            if (!childComponent) throw "Child has no mcomponent object.";
+            console.log("childComponent", id, childComponent);
+            this.mcomponent.addChild(id, childComponent);
         }
     },
 
@@ -41,9 +45,10 @@ var Component = Class.extend({
         // Implemented by Component instances.
     },
 
-    addChild : function(id, c) {
-        this.children[id] = c;
-        c._setParent(this);
+    addChild : function(id, ComponentClass) {
+        var obj = new ComponentClass({componentManager : this.componentManager, viewManager : this.viewManager});
+        obj._setParent(this);
+        this.children[id] = obj;
     },
 
     _setParent : function(p) {

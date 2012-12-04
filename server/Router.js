@@ -30,6 +30,8 @@ var Router = Class.extend({
 
         var PageClass = this.pathPageMap[path];
 
+        console.log("this.pathPageMap", this.pathPageMap);
+
         if (PageClass) {
             return new PageServlet(
                 request,
