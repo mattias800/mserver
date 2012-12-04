@@ -1,5 +1,3 @@
-var fs = require('fs');
-
 var mcomponent = require('../mcomponent.js');
 
 var Component = Class.extend({
@@ -19,8 +17,8 @@ var Component = Class.extend({
         this.model = undefined;
 
         // View
-        this.view = undefined;
-        this.viewHtml = undefined;
+        this.viewPath = undefined;
+        this.viewComponent = undefined;
 
         // Component
         this.mcomponent = undefined;
@@ -31,7 +29,7 @@ var Component = Class.extend({
         console.log("Component._prepare()");
         this.setModel(undefined);
         this.prepare();
-        this.mcomponent = mcomponent({viewHtml : this.viewHtml});
+        this.mcomponent = mcomponent({viewHtml : this.viewHtml, viewFromComponent : this.viewComponent});
         for (var id in this.children) {
             this.children[id]._prepare();
             this.mcomponent.addChild(id, this.children[id]._getMcomponent());
@@ -52,18 +50,12 @@ var Component = Class.extend({
         this.parent = p;
     },
 
-    setView : function(s) {
-        console.log("Componenet.setView()", s);
-        this.view = s;
-        this.setViewHtml(this._readViewFile(this.view));
-    },
-
-    _readViewFile : function(file) {
-        return fs.readFileSync(file, 'utf8')
+    setViewPath : function(path) {
+        this.viewPath = path;
+        this.viewComponent = this.viewManager.getViewForPath(this.viewPath);
     },
 
     setViewHtml : function(html) {
-        console.log("html", html);
         this.viewHtml = html;
     },
 

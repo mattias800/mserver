@@ -5,7 +5,6 @@ var PageServlet = ServletBase.extend({
     init : function(request, response, PageClass, componentManager) {
         this._super(request, response);
         this.PageClass = PageClass;
-        console.log("PageServlet servering", PageClass);
         this.page = new PageClass({componentManager : componentManager});
     },
 

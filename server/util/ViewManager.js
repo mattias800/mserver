@@ -1,3 +1,7 @@
+var fs = require('fs');
+
+var mcomponent = require('../mcomponent.js');
+
 var ViewManager = Class.extend({
 
     init : function(args) {
@@ -20,6 +24,7 @@ var ViewManager = Class.extend({
     },
 
     _readViewFile : function(file) {
+        console.log("Reading view from disk: " + file);
         return fs.readFileSync(file, 'utf8')
     }
 

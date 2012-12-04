@@ -28,9 +28,6 @@ var Router = Class.extend({
         // Which servlet to use is controlled via the path.
         var s = path.split("/");
 
-        console.log("this.pathPageMap", this.pathPageMap);
-        console.log("path", path);
-
         var PageClass = this.pathPageMap[path];
 
         if (PageClass) {
