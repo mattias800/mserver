@@ -6,6 +6,11 @@ var Component = Class.extend({
 
     init : function(args) {
 
+        // Managers and router
+        this.componentManager = args.componentManager;
+        this.viewManager = this.componentManager.viewManager;
+        this.router = this.componentManager.getRouter();
+
         // Tree
         this.children = {};
         this.parent = undefined;
@@ -24,8 +29,9 @@ var Component = Class.extend({
 
     _prepare : function() {
         console.log("Component._prepare()");
+        this.setModel(undefined);
         this.prepare();
-        this.mcomponent = mcomponent({viewHtml : this.viewHtml, model : this.model});
+        this.mcomponent = mcomponent({viewHtml : this.viewHtml});
         for (var id in this.children) {
             this.children[id]._prepare();
             this.mcomponent.addChild(id, this.children[id]._getMcomponent());
@@ -67,6 +73,11 @@ var Component = Class.extend({
 
     _getMcomponent : function() {
         return this.mcomponent;
+    },
+
+    _render : function() {
+        this.mcomponent.setModel(this.model);
+        return this.mcomponent.render().html;
     }
 
 

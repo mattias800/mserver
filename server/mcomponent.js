@@ -2121,3 +2121,5 @@ function mcomponent(args) {
 
     };
 }
+
+module.exports = mcomponent;

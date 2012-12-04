@@ -4,6 +4,7 @@ var RpcServlet = require("./servlets/impl/RpcServlet.js");
 
 var TestPage = {}; //require("../root/pages/TestPage.js");
 var ComponentManager = require("./util/ComponentManager.js");
+var ViewManager = require("./util/ViewManager.js");
 
 var Router = Class.extend({
 
@@ -11,13 +12,16 @@ var Router = Class.extend({
 
         this.pathPageMap = {};
 
-        this.componentManager = new ComponentManager({router : this});
+        this.viewManager = new ViewManager({router : this});
+        this.componentManager = new ComponentManager({router : this, viewManager : this.viewManager});
+
         this.sandbox = this.componentManager.sandbox;
 
     },
 
-    addPagePath : function(path, page) {
-        this.pathPageMap[path] = page;
+    registerPageAtPath : function(pageClass, path) {
+        // TODO: Warn if path is already in use!
+        this.pathPageMap[path] = pageClass;
     },
 
     createServlet : function(request, response, path) {
@@ -27,8 +31,15 @@ var Router = Class.extend({
         console.log("this.pathPageMap", this.pathPageMap);
         console.log("path", path);
 
-        if (this.pathPageMap[path]) {
-            return new PageServlet(request, response, this.pathPageMap[path]);
+        var PageClass = this.pathPageMap[path];
+
+        if (PageClass) {
+            return new PageServlet(
+                request,
+                response,
+                PageClass,
+                this.componentManager
+            );
         }
 
         switch (s[1]) {

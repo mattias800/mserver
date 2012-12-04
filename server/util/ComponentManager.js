@@ -7,6 +7,10 @@ var ComponentManager = Class.extend({
     init : function(args) {
 
         this.router = args.router;
+        this.viewManager = args.viewManager;
+
+        if (!this.router) throw "ComponentManagers requires args.router.";
+        if (!this.viewManager) throw "ComponentManagers requires args.viewManager.";
 
         this.componentsDirectory = "./root/components/";
         this.pagesDirectory = "./root/pages/";
@@ -24,21 +28,17 @@ var ComponentManager = Class.extend({
 
         this.includeAllFiles();
 
-        this.pageInstances = {};
-        this.componentInstances = {};
-
-        this.instantiateAll();
+        this.registerAllPagesInRouter();
     },
 
-    instantiateAll : function() {
-        console.log("instantiateAll");
+    registerAllPagesInRouter : function() {
+        console.log("Registering pages and components...");
         for (var name in this.sandbox.pages) {
-            console.log("Instantiating page: " + name);
-            this.pageInstances[name] = new this.sandbox.pages[name]({manager : this});
-        }
-        for (var name in this.sandbox.components) {
-            console.log("Instantiating component: " + name);
-            this.componentInstances[name] = new this.sandbox.components[name]({manager : this});
+            var PageClass = this.sandbox.pages[name];
+            var page = new PageClass({componentManager : this});
+            var path = page.path;
+            this.router.registerPageAtPath(this.sandbox.pages[name], page.path);
+            console.log("Registered page " + name + " at " + path);
         }
         console.log("All pages and components instantiated.");
     },

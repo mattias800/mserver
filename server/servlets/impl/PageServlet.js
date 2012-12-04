@@ -2,9 +2,11 @@ var ServletBase = require("../ServletBase.js");
 
 var PageServlet = ServletBase.extend({
 
-    init : function(request, response, page) {
+    init : function(request, response, PageClass, componentManager) {
         this._super(request, response);
-        this.page = page;
+        this.PageClass = PageClass;
+        console.log("PageServlet servering", PageClass);
+        this.page = new PageClass({componentManager : componentManager});
     },
 
 
