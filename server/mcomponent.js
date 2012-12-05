@@ -401,10 +401,6 @@ function mcomponent(args) {
                     return that.executionStack[0].model;
                 },
                 getIterator : function(iteratorName) {
-                    if (iteratorName == "iterBeforeRender") {
-                        console.log("OK VAFAN!");
-                        console.log("iteratorName", iteratorName);
-                    }
                     executionContext.ensureIterator(iteratorName);
                     var i = executionContext.getIteratorWithName(iteratorName);
                     return i ? i.getPublicInterface() : undefined;
