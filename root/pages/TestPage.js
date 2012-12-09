@@ -5,7 +5,7 @@ pages.TestPage = Page.extend({
     prepare : function() {
         this.setViewPath("root/pages/TestPage.html");
 
-        this.addChild("content", components.TestComponent);
+        this.addChild("content", new components.TestComponent());
     },
 
     afterPrepare : function() {

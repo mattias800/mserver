@@ -4,10 +4,17 @@ var Component = Class.extend({
 
     init : function(args) {
 
-        // Managers and router
-        this.componentManager = args.componentManager;
-        this.viewManager = this.componentManager.viewManager;
-        this.router = this.componentManager.getRouter();
+        /*
+         var c = new MyComponent();
+         page.addChild(c);
+         c.addChild(otherComponent);
+
+         var c = new MyComponent();
+         c.addChild(otherComponent);
+         page.addChild(c);
+
+         Both should work!!
+         */
 
         // Tree
         this.children = {};
@@ -23,6 +30,19 @@ var Component = Class.extend({
         // Component
         this.mcomponent = undefined;
 
+    },
+
+    _getComponentManager : function() {
+        return this.componentManager;
+    },
+
+    _setComponentManager : function(cm) {
+        this.componentManager = cm;
+        this.viewManager = this.componentManager.viewManager;
+        // Set for children as well.
+        for (var id in this.children) {
+            this.children[id]._setComponentManager(cm);
+        }
     },
 
     _prepare : function() {
@@ -52,14 +72,14 @@ var Component = Class.extend({
         // Implemented by Component instances.
     },
 
-    addChild : function(id, ComponentClass) {
-        var obj = new ComponentClass({componentManager : this.componentManager, viewManager : this.viewManager});
-        obj._setParent(this);
-        this.children[id] = obj;
+    addChild : function(id, component) {
+        component._setParent(this);
+        this.children[id] = component;
     },
 
     _setParent : function(p) {
         this.parent = p;
+        this._setComponentManager(p._getComponentManager());
     },
 
     setViewPath : function(path) {
