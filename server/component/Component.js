@@ -21,7 +21,7 @@ var Component = Class.extend({
         this.parent = undefined;
 
         // Model
-        this.model = undefined;
+        this.setModel(undefined);
 
         // View
         this.viewPath = undefined;
@@ -46,7 +46,6 @@ var Component = Class.extend({
     },
 
     _prepare : function() {
-        console.log("Component._prepare()");
         this.prepare();
         this.mcomponent = mcomponent({viewHtml : this.viewHtml, viewFromComponent : this.viewComponent});
         for (var id in this.children) {
@@ -84,7 +83,7 @@ var Component = Class.extend({
 
     setViewPath : function(path) {
         this.viewPath = path;
-        this.viewComponent = this.viewManager.getViewForPath(this.viewPath);
+        this.viewComponent = this.viewManager.getViewComponentForPath(this.viewPath);
     },
 
     setViewHtml : function(html) {
@@ -99,13 +98,26 @@ var Component = Class.extend({
         return this.mcomponent;
     },
 
-    _render : function() {
-        console.log("OK RENDERING COMPONENT!");
-        console.log("children=", this.mcomponent.getChildren());
-        console.log("children.content=", this.mcomponent.getChildren().content);
-        console.log("children.hasContent=", this.mcomponent.hasChild("content"));
+    _beforeRender : function() {
         this.mcomponent.setModel(this.model);
-        return this.mcomponent.render().html;
+        this.beforeRender();
+        for (var id in this.children) {
+            this.children[id]._beforeRender();
+        }
+    },
+
+    beforeRender : function() {
+
+    },
+
+    log : function(s1, s2) {
+        var args = [];
+        args.push("Log:" + (this.type ? this.type : this.viewPath));
+        for (var i = 0; i < arguments.length; i++) {
+            var arg = arguments[i];
+            args.push(arg);
+        }
+        console.log.apply(this, args);
     }
 
 

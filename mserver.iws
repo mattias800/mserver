@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a1ce67a-4527-416d-a33a-81fbd65eda58" name="Default" comment="">
+    <list default="true" id="6a1ce67a-4527-416d-a33a-81fbd65eda58" name="Default" comment="Setting dependencies for Component when addChild is executed. They are derived from the parent, and all children are updated as well.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mserver.iws" afterPath="$PROJECT_DIR$/mserver.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/components/TestComponent.js" afterPath="$PROJECT_DIR$/root/components/TestComponent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/pages/TestPage.html" afterPath="$PROJECT_DIR$/root/pages/TestPage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/pages/TestPage.js" afterPath="$PROJECT_DIR$/root/pages/TestPage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/Router.js" afterPath="$PROJECT_DIR$/server/Router.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/component/Component.js" afterPath="$PROJECT_DIR$/server/component/Component.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/component/Page.js" afterPath="$PROJECT_DIR$/server/component/Page.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/mcomponent.js" afterPath="$PROJECT_DIR$/server/mcomponent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/util/ViewManager.js" afterPath="$PROJECT_DIR$/server/util/ViewManager.js" />
     </list>
     <ignored path="mserver.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,64 +68,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TestPage.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/pages/TestPage.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestPage2.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/pages/TestPage2.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="15" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestPage2.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/pages/TestPage2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TestPage.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/pages/TestPage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="27" selection-start="119" selection-end="119" vertical-scroll-proportion="-5.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Component.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/component/Component.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="68" selection-start="2383" selection-end="2383" vertical-scroll-proportion="0.0">
+            <state line="94" column="6" selection-start="2363" selection-end="2363" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestComponent.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/components/TestComponent.js">
+      <file leaf-file-name="Page.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/component/Page.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewManager.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/util/ViewManager.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="55" selection-start="837" selection-end="837" vertical-scroll-proportion="0.0">
+            <state line="34" column="15" selection-start="782" selection-end="782" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -138,16 +98,61 @@
       <file leaf-file-name="Router.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/Router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="1082" selection-end="1082" vertical-scroll-proportion="0.0">
+            <state line="56" column="0" selection-start="1823" selection-end="1823" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mcomponent.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="mcomponent.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/mcomponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="32" selection-start="6744" selection-end="6753" vertical-scroll-proportion="0.33333334">
+            <state line="2160" column="28" selection-start="77703" selection-end="77703" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestComponent.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/components/TestComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="0" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestComponent.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/root/components/TestComponent.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="11" selection-end="11" vertical-scroll-proportion="0.037593983">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestPage.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/pages/TestPage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="4" selection-start="58" selection-end="76" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestPage.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/pages/TestPage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="72" selection-end="72" vertical-scroll-proportion="-5.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../mcomponent/test/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="47" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -166,20 +171,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/mserver.ipr" />
         <option value="$PROJECT_DIR$/mserver.iws" />
-        <option value="$PROJECT_DIR$/server/component/Page.js" />
         <option value="$PROJECT_DIR$/server/util/ComponentManager.js" />
         <option value="$PROJECT_DIR$/root/pages/TestPage2.html" />
-        <option value="$PROJECT_DIR$/root/components/TestComponent.js" />
-        <option value="$PROJECT_DIR$/server/util/ViewManager.js" />
-        <option value="$PROJECT_DIR$/server/Router.js" />
         <option value="$PROJECT_DIR$/root/pages/TestPage2.js" />
         <option value="$PROJECT_DIR$/server/servlets/impl/PageServlet.js" />
+        <option value="$PROJECT_DIR$/../mcomponent/src/index.html" />
+        <option value="$PROJECT_DIR$/../mcomponent/test/index.html" />
+        <option value="$PROJECT_DIR$/server/util/ViewManager.js" />
         <option value="$PROJECT_DIR$/server/mcomponent.js" />
-        <option value="$PROJECT_DIR$/root/pages/TestPage.js" />
         <option value="$PROJECT_DIR$/root/pages/TestPage.html" />
+        <option value="$PROJECT_DIR$/root/pages/TestPage.js" />
+        <option value="$PROJECT_DIR$/root/components/TestComponent.js" />
+        <option value="$PROJECT_DIR$/server/component/Page.js" />
         <option value="$PROJECT_DIR$/server/component/Component.js" />
+        <option value="$PROJECT_DIR$/server/Router.js" />
+        <option value="$PROJECT_DIR$/root/components/TestComponent.html" />
       </list>
     </option>
   </component>
@@ -306,6 +313,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rpc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -515,7 +558,27 @@
       <created>1354661195132</created>
       <updated>1354661195132</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="New version of mcomponent.&#10;Child components still not working, complains that the child doesn't exist, even though it does. Weird.">
+      <created>1354663148717</created>
+      <updated>1354663148717</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Removed debug output.">
+      <created>1354735779787</created>
+      <updated>1354735779787</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Setting dependencies for Component when addChild is executed. They are derived from the parent, and all children are updated as well.">
+      <created>1355073158438</created>
+      <updated>1355073158438</updated>
+    </task>
+    <task id="LOCAL-00009" summary="validateChild now checks that the child is actually an mcomponent object.">
+      <created>1355479393857</created>
+      <updated>1355479393857</updated>
+    </task>
+    <task id="LOCAL-00010" summary="validateChild working properly..">
+      <created>1355479762444</created>
+      <updated>1355479762444</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -582,7 +645,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="New version of mcomponent.&#10;Child components still not working, complains that the child doesn't exist, even though it does. Weird." />
+    <option name="LAST_COMMIT_MESSAGE" value="validateChild working properly.." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -600,6 +663,10 @@
     <MESSAGE value="Views are now cached in ViewManager. ViewManager reads the views from file, Component no longer does that." />
     <MESSAGE value="Component.addChild now takes a class as parameter, instead of an instance. This is because we need to have control over the parameters." />
     <MESSAGE value="New version of mcomponent.&#10;Child components still not working, complains that the child doesn't exist, even though it does. Weird." />
+    <MESSAGE value="Removed debug output." />
+    <MESSAGE value="Setting dependencies for Component when addChild is executed. They are derived from the parent, and all children are updated as well." />
+    <MESSAGE value="validateChild now checks that the child is actually an mcomponent object." />
+    <MESSAGE value="validateChild working properly.." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -615,48 +682,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/component/Page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/util/ComponentManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="33" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/root/pages/TestPage2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/root/components/TestComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/util/ViewManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="55" selection-start="837" selection-end="837" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/Router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1082" selection-end="1082" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/servlets/impl/PageServlet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="34" selection-start="418" selection-end="418" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/root/pages/TestPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/root/pages/TestPage2.js">
@@ -664,23 +692,82 @@
         <state line="0" column="15" selection-start="15" selection-end="15" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/util/ComponentManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="35" selection-start="1261" selection-end="1261" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/util/ViewManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="6" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/servlets/impl/PageServlet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="34" selection-start="418" selection-end="418" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mcomponent/test/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="47" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/mcomponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2160" column="28" selection-start="77703" selection-end="77703" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/root/pages/TestPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="27" selection-start="119" selection-end="119" vertical-scroll-proportion="-5.625">
+        <state line="8" column="0" selection-start="72" selection-end="72" vertical-scroll-proportion="-5.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/pages/TestPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="4" selection-start="58" selection-end="76" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/components/TestComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="168" selection-end="168" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/component/Page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="15" selection-start="782" selection-end="782" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/component/Component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="68" selection-start="2383" selection-end="2383" vertical-scroll-proportion="0.0">
+        <state line="94" column="6" selection-start="2363" selection-end="2363" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/mcomponent.js">
+    <entry file="file://$PROJECT_DIR$/server/Router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="32" selection-start="6744" selection-end="6753" vertical-scroll-proportion="0.33333334">
+        <state line="56" column="0" selection-start="1823" selection-end="1823" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/components/TestComponent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="11" selection-end="11" vertical-scroll-proportion="0.037593983">
           <folding />
         </state>
       </provider>

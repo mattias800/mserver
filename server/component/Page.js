@@ -28,7 +28,13 @@ var Page = Component.extend({
     render : function() {
         if (!this._getMcomponent()) throw "Trying to render Page, but Page has no mcomponent.";
         return this._render();
+    },
+
+    _render : function() {
+        this._beforeRender();
+        return this.mcomponent.render().html;
     }
+
 
 });
 
