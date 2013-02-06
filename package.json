@@ -1,34 +1,32 @@
 {
-  "name": "OpenShift-Sample-App",
-  "version": "1.0.0",
-  "description": "OpenShift Sample Application",
-  "keywords": [
-    "OpenShift",
-    "Node.js",
-    "application",
-    "openshift"
-  ],
-  "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url":  "http://openshift.redhat.com/"
-  },
-  "homepage": "http://openshift.redhat.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://gitub.com/openshift/crankcase"
-  },
-
-  "engines": {
-    "node": ">= 0.6.0",
-    "npm": ">= 1.0.0"
-  },
-
-  "dependencies": {
-  },
-  "devDependencies": {},
-  "bundleDependencies": [],
-
-  "private": true,
-  "main": "server.js"
+	"name" : "mserver",
+	"version" : "0.0.0",
+	"description" : "A simple web application framework for Node.",
+	"main" : "server/main.js",
+	"directories" : {
+		"test" : "test"
+	},
+	"dependencies" : {
+		"resig-class" : "~0.1.0"
+	},
+	"devDependencies" : {
+		"mocha" : "",
+		"should" : ""
+	},
+	"scripts" : {
+		"test" : "mocha test/*.js",
+		"start" : "node server.js"
+	},
+	"repository" : {
+		"type" : "git",
+		"url" : "/Users/mono/Dropbox/repos/mserver/"
+	},
+	"keywords" : [
+		"mserver",
+		"mcomponent"
+	],
+	"author" : "Mattias Andersson",
+	"license" : "BSD",
+	"readmeFilename" : "README"
 }
+

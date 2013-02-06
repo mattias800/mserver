@@ -1,3 +1,3 @@
-var mserver = require("./server/mserver.js");
+var mserver = require("./lib/main.js");
 
 var server = new mserver.startServer();

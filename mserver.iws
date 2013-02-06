@@ -2,13 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a1ce67a-4527-416d-a33a-81fbd65eda58" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/Router.js" afterPath="$PROJECT_DIR$/server/Router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/root/pages/TestPage.html" afterPath="$PROJECT_DIR$/root/pages/TestPage.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/main.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/servlets/.svn/all-wcprops" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/servlets/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/servlets/.svn/text-base/ServletBase.js.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/servlets/.svn/text-base/StreamingServletBase.js.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/servlets/impl/.svn/all-wcprops" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/servlets/impl/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/servlets/impl/.svn/text-base/FileServlet.js.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/servlets/impl/.svn/text-base/NoSuchRpcServlet.js.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/servlets/impl/.svn/text-base/NotFoundServlet.js.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/servlets/impl/.svn/text-base/RpcErrorServlet.js.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/servlets/impl/.svn/text-base/RpcServlet.js.svn-base" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/util/.svn/all-wcprops" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/util/.svn/entries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/server/util/.svn/text-base/ParamsUtil.js.svn-base" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/ContentHandler.js" afterPath="$PROJECT_DIR$/lib/ContentHandler.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/Router.js" afterPath="$PROJECT_DIR$/lib/Router.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/component/Component.js" afterPath="$PROJECT_DIR$/lib/component/Component.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/component/Page.js" afterPath="$PROJECT_DIR$/lib/component/Page.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/mcomponent.js" afterPath="$PROJECT_DIR$/lib/mcomponent.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/mserver.js" afterPath="$PROJECT_DIR$/lib/main.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/rpc/Rpc.js" afterPath="$PROJECT_DIR$/lib/rpc/Rpc.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/rpc/RpcResponse.js" afterPath="$PROJECT_DIR$/lib/rpc/RpcResponse.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/server.iml" afterPath="$PROJECT_DIR$/lib/server.iml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/servlets/ServletBase.js" afterPath="$PROJECT_DIR$/lib/servlets/ServletBase.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/servlets/impl/FileServlet.js" afterPath="$PROJECT_DIR$/lib/servlets/impl/FileServlet.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/servlets/impl/NotFoundServlet.js" afterPath="$PROJECT_DIR$/lib/servlets/impl/NotFoundServlet.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/servlets/impl/PageServlet.js" afterPath="$PROJECT_DIR$/lib/servlets/impl/PageServlet.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/servlets/impl/RpcErrorServlet.js" afterPath="$PROJECT_DIR$/lib/servlets/impl/RpcErrorServlet.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/servlets/impl/RpcServlet.js" afterPath="$PROJECT_DIR$/lib/servlets/impl/RpcServlet.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/util/ComponentManager.js" afterPath="$PROJECT_DIR$/lib/util/ComponentManager.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/util/ParamsUtil.js" afterPath="$PROJECT_DIR$/lib/util/ParamsUtil.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/server/util/ViewManager.js" afterPath="$PROJECT_DIR$/lib/util/ViewManager.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mserver.iws" afterPath="$PROJECT_DIR$/mserver.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
     </list>
     <ignored path="mserver.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360109446315" ignored="false" />
+    <file path="/Dummy.txt" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360109976150" ignored="false" />
     <file path="/ComponentManager.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360109141424" ignored="false" />
     <file path="/TestPage.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360104585817" ignored="false" />
     <file path="/a.dummy" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360109179531" ignored="false" />
@@ -25,6 +58,7 @@
     <file path="/GetGame.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360108823142" ignored="false" />
     <file path="/RpcErrorServlet.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360108877626" ignored="false" />
     <file path="/TestPage.html" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360109518825" ignored="false" />
+    <file path="/main.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360111909108" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,26 +117,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RpcServlet.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/servlets/impl/RpcServlet.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mserver.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/mserver.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="13" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RpcResponse.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/rpc/RpcResponse.js">
+        <entry file="file://$PROJECT_DIR$/lib/rpc/RpcResponse.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="4" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
               <folding />
@@ -122,7 +138,7 @@
       <file leaf-file-name="TestPage.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/root/pages/TestPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="4" selection-start="59" selection-end="59" vertical-scroll-proportion="-4.375">
+            <state line="7" column="4" selection-start="62" selection-end="62" vertical-scroll-proportion="2.25">
               <folding />
             </state>
           </provider>
@@ -137,37 +153,57 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Router.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/Router.js">
+      <file leaf-file-name="Router.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="0" selection-start="2687" selection-end="2687" vertical-scroll-proportion="0.8698885">
+            <state line="70" column="0" selection-start="2687" selection-end="2687" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetBus.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/root/rpc/GetBus.js">
+      <file leaf-file-name="TestComponent.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root/components/TestComponent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="53" selection-start="840" selection-end="840" vertical-scroll-proportion="0.0">
+            <state line="11" column="0" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ComponentManager.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/util/ComponentManager.js">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/resig-class/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="38" selection-start="965" selection-end="965" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="29" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RpcErrorServlet.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/servlets/impl/RpcErrorServlet.js">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="19" selection-start="100" selection-end="115" vertical-scroll-proportion="0.0">
+            <state line="47" column="25" selection-start="1761" selection-end="1761" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="8" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -191,8 +227,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/server/servlets/ServletBase.js" />
         <option value="$PROJECT_DIR$/server/servlets/impl/PageServlet.js" />
         <option value="$PROJECT_DIR$/server/rpc/RpcActionBase.js" />
         <option value="$PROJECT_DIR$/root/rpc/GetGame.js" />
@@ -207,6 +241,8 @@
         <option value="$PROJECT_DIR$/root/pages/TestPage.html" />
         <option value="$PROJECT_DIR$/server/Router.js" />
         <option value="$PROJECT_DIR$/root/pages/TestPage.js" />
+        <option value="$PROJECT_DIR$/test/main.js" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -282,101 +318,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servlets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="servlets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rpc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="component" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -463,6 +405,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -636,7 +592,11 @@
       <created>1360109448864</created>
       <updated>1360109448864</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Default to index.html in root.">
+      <created>1360110005116</created>
+      <updated>1360110005116</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -706,7 +666,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lots of updates!&#10;Using Pages.registerPage(..) to create pages, instead of just creating the classes.&#10;Same for RPC:s, Pages.registerRpc(..)&#10;Sandbox now contains require, so pages, RPC:s and components can require stuff, such as &quot;http&quot; for HTTP connections.&#10;Renamed RpcActionBase to Rpc, to conform with Page and Component naming.&#10;Removed all references to creos.&#10;RpcServlet cleaned up. Now takes an RPC action class as argument, instead of using path variable.&#10;Router now uses only registered paths. If a path is not registered, it uses the file system. No more &quot;rpc&quot; as first path part, RPC:s can have any path." />
+    <option name="LAST_COMMIT_MESSAGE" value="Default to index.html in root." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -730,39 +690,12 @@
     <MESSAGE value="validateChild working properly.." />
     <MESSAGE value="Using latest version of mcomponent which fixes a scope bug when using view from other component.&#10;Removed lots of debug output.&#10;Now setting model properly on all components, not just the Page object." />
     <MESSAGE value="Lots of updates!&#10;Using Pages.registerPage(..) to create pages, instead of just creating the classes.&#10;Same for RPC:s, Pages.registerRpc(..)&#10;Sandbox now contains require, so pages, RPC:s and components can require stuff, such as &quot;http&quot; for HTTP connections.&#10;Renamed RpcActionBase to Rpc, to conform with Page and Component naming.&#10;Removed all references to creos.&#10;RpcServlet cleaned up. Now takes an RPC action class as argument, instead of using path variable.&#10;Router now uses only registered paths. If a path is not registered, it uses the file system. No more &quot;rpc&quot; as first path part, RPC:s can have any path." />
+    <MESSAGE value="Default to index.html in root." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/servlets/impl/FileServlet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/servlets/impl/NotFoundServlet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/servlets/impl/PageServlet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="892" selection-end="892" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/servlets/ServletBase.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/root/rpc/GetGame.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="11" selection-start="72" selection-end="82" vertical-scroll-proportion="0.0">
@@ -770,35 +703,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/rpc/Rpc.js">
+    <entry file="file://$PROJECT_DIR$/lib/rpc/Rpc.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="46" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/servlets/impl/RpcErrorServlet.js">
+    <entry file="file://$PROJECT_DIR$/lib/servlets/impl/RpcErrorServlet.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="19" selection-start="100" selection-end="115" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/mserver.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="13" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/servlets/impl/RpcServlet.js">
+    <entry file="file://$PROJECT_DIR$/lib/servlets/impl/RpcServlet.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="0" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/util/ComponentManager.js">
+    <entry file="file://$PROJECT_DIR$/lib/util/ComponentManager.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="38" selection-start="965" selection-end="965" vertical-scroll-proportion="0.0">
           <folding />
@@ -812,7 +738,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/rpc/RpcResponse.js">
+    <entry file="file://$PROJECT_DIR$/lib/rpc/RpcResponse.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
           <folding />
@@ -835,14 +761,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/root/pages/TestPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="4" selection-start="59" selection-end="59" vertical-scroll-proportion="-4.375">
+        <state line="7" column="4" selection-start="62" selection-end="62" vertical-scroll-proportion="2.25">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/Router.js">
+    <entry file="file://$PROJECT_DIR$/lib/Router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="0" selection-start="2687" selection-end="2687" vertical-scroll-proportion="0.8698885">
+        <state line="70" column="0" selection-start="2687" selection-end="2687" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root/components/TestComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/resig-class/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="8" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="25" selection-start="1761" selection-end="1761" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="29" selection-start="29" selection-end="29" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
