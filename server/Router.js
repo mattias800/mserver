@@ -40,7 +40,13 @@ var Router = Class.extend({
         this.rpcClassPerPath[path] = rpcClass;
     },
 
+    pathIsInUse : function(path) {
+        return this.pageClassPerPath[path] || this.rpcClassPerPath[path];
+    },
+
     createServlet : function(request, response, path) {
+
+        if (!path) path = "/";
 
         var PageClass = this.pageClassPerPath[path];
 
@@ -54,7 +60,13 @@ var Router = Class.extend({
             return new RpcServlet(request, response, RpcClass, this.componentManager);
         }
 
-        return new FileServlet(request, response); // No explicit filename.
+        if (path == "/") {
+            // Default to index.html in root, when no Page has been registered there.
+            return new FileServlet(request, response, "index.html");
+        }
+
+        // If nothing else works, use static files.
+        return new FileServlet(request, response);
 
     }
 
