@@ -1,0 +1,3 @@
+[submodule "server/dep/mcomponent"]
+	path = server/dep/mcomponent
+	url = https://github.com/mattias800/mcomponent.git
