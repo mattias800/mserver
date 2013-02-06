@@ -1,6 +1,9 @@
-var StoreGame = RpcActionBase.extend({
+Pages.registerRpc({
 
-    execute : function(urlParameter, afterDone) {
+    id : "GetBus",
+    path : "/rpc/StoreGame",
+
+    executeRpc : function(urlParameter, afterDone) {
 
     }
 

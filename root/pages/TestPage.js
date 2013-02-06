@@ -1,17 +1,18 @@
-pages.TestPage = Page.extend({
+Pages.registerPage(
+    {
+        id : "TestPage",
+        path : "/myPage",
 
-    path : "/myPage",
-    type : "TestPage",
+        prepare : function() {
+            this.setViewPath("root/pages/TestPage.html");
 
-    prepare : function() {
-        this.setViewPath("root/pages/TestPage.html");
+            this.setModel({name : "Jenny"});
 
-        this.setModel({name : "Jenny"});
+            this.addChild("content", new components.TestComponent());
+        },
 
-        this.addChild("content", new components.TestComponent());
-    },
+        afterPrepare : function() {
+        }
 
-    afterPrepare : function() {
     }
-
-});
+);

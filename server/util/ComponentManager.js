@@ -1,6 +1,10 @@
 var fs = require('fs');
 var path = require("path");
 var vm = require("vm");
+var Page = require("../component/Page.js");
+var Rpc = require("../rpc/Rpc.js");
+var Component = require("../component/Component.js");
+var RpcResponse = require("../rpc/RpcResponse.js");
 
 var ComponentManager = Class.extend({
 
@@ -14,33 +18,72 @@ var ComponentManager = Class.extend({
 
         this.componentsDirectory = "./root/components/";
         this.pagesDirectory = "./root/pages/";
+        this.rpcDirectory = "./root/rpc/";
+
         this.fileList = this.findAllPageJsPaths();
-        this.classes = {};
 
         this.sandbox = {};
-        this.sandbox.Component = require("../component/Component.js");
-        this.sandbox.Page = require("../component/Page.js");
+
+        this.sandbox.Component = Component;
+        this.sandbox.Page = Page;
+        this.sandbox.RpcResponse = RpcResponse;
+        this.sandbox.Pages = this.createPagesObject();
+
         this.sandbox.console = console;
+        this.sandbox.require = require;
         this.sandbox.router = this.router;
-        this.sandbox.pages = {};
         this.sandbox.components = {};
+
         this.context = vm.createContext(this.sandbox);
 
         this.includeAllFiles();
 
-        this.registerAllPagesInRouter();
     },
 
-    registerAllPagesInRouter : function() {
-        console.log("Registering pages and components...");
-        for (var name in this.sandbox.pages) {
-            var PageClass = this.sandbox.pages[name];
-            var page = new PageClass({componentManager : this});
-            var path = page.path;
-            this.router.registerPageAtPath(this.sandbox.pages[name], page.path);
-            console.log("Registered page " + name + " at " + path);
+    createPagesObject : function() {
+        var that = this;
+        return {
+            registerPage : function(pageArgs) {
+                that.registerPage(pageArgs)
+            },
+            registerRpc : function(rpcArgs) {
+                that.registerRpc(rpcArgs)
+            }
+        };
+    },
+
+    validatePageArgs : function(pageArgs) {
+        if (pageArgs.id == undefined) throw "Page has no id specified.";
+        if (pageArgs.path == undefined) throw "Page (id=" + pageArgs.id + ") has no path specified.";
+    },
+
+    registerPage : function(pageArgs) {
+        var path = pageArgs.path;
+        try {
+            this.validatePageArgs(pageArgs);
+        } catch (e) {
+            throw "Trying to register page at path=" + path + " but: " + e;
         }
-        console.log("All pages and components instantiated.");
+        var PathClass = Page.extend(pageArgs);
+        this.router.registerPageAtPath(PathClass, path);
+        console.log("Registered page at " + path);
+    },
+
+    validateRpcArgs : function(rpcArgs) {
+        if (rpcArgs.id == undefined) throw "RPC has no id specified.";
+        if (rpcArgs.path == undefined) throw "RPC (id=" + pageArgs.id + ") has no path specified.";
+    },
+
+    registerRpc : function(rpcArgs) {
+        var path = rpcArgs.path;
+        try {
+            this.validateRpcArgs(rpcArgs);
+        } catch (e) {
+            throw "Trying to register RPC at path=" + path + " but: " + e;
+        }
+        var RpcClass = Rpc.extend(rpcArgs);
+        this.router.registerRpcAtPath(RpcClass, path);
+        console.log("Registered RPC at " + path);
     },
 
     getRouter : function() {
@@ -70,6 +113,15 @@ var ComponentManager = Class.extend({
             file = files[i];
             if (that.fileNameIsJsFile(file)) {
                 fileList.push(that.pagesDirectory + file);
+            }
+        }
+
+        files = fs.readdirSync(this.rpcDirectory);
+
+        for (var i = 0; i < files.length; i++) {
+            file = files[i];
+            if (that.fileNameIsJsFile(file)) {
+                fileList.push(that.rpcDirectory + file);
             }
         }
 

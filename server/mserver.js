@@ -6,13 +6,13 @@ var Class = require("resig-class");
 var Router = require("./Router.js");
 var Component = require("./component/Component.js");
 var Page = require("./component/Page.js");
-var RpcActionBase = require("./rpc/RpcActionBase.js");
+var Rpc = require("./rpc/Rpc.js");
 var RpcResponse = require("./rpc/RpcResponse.js");
 
 if (Router == undefined) throw "Unable to include Router.";
 if (Component == undefined) throw "Unable to include Component.";
 if (Page == undefined) throw "Unable to include Page.";
-if (RpcActionBase == undefined) throw "Unable to include RpcActionBase.";
+if (Rpc == undefined) throw "Unable to include Rpc.";
 if (RpcResponse == undefined) throw "Unable to include RpcResponse.";
 
 var Server = Class.extend({
@@ -55,16 +55,20 @@ var Server = Class.extend({
 
             }).listen(port, ipaddr);
 
-        console.log('Started Creos server at ' + ipaddr + ":" + port);
+        console.log('Started mserver at ' + ipaddr + ":" + port);
 
 
     }
 
 });
 
-module.exports.Server = Server;
+var startServer = function() {
+    return new Server();
+};
+
+module.exports.startServer = startServer;
 module.exports.Component = Component;
 module.exports.Page = Page;
-module.exports.RpcActionBase = RpcActionBase;
+module.exports.Rpc = Rpc;
 module.exports.RpcResponse = RpcResponse;
 

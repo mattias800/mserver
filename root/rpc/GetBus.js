@@ -1,8 +1,11 @@
-var RpcResponse = require("../server/servlets/ServletBase.js");
+var http = require("http");
 
-var GetBus = RpcActionBase.extend({
+Pages.registerRpc({
 
-    execute : function(urlParameter, afterDone) {
+    id : "GetBus",
+    path : "/rpc/GetBus",
+
+    executeRpc : function(urlParameter, afterDone) {
 
         console.log("Getting bus...");
 
@@ -42,5 +45,3 @@ var GetBus = RpcActionBase.extend({
     }
 
 });
-
-module.exports = GetBus;

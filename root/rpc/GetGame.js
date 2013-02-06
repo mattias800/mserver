@@ -1,6 +1,9 @@
-creos.rpcGetGame = creos.RpcActionBase.extend({
+Pages.registerRpc({
 
-    execute : function(urlParameter, afterDone) {
+    id : "GetBus",
+    path : "/rpc/GetGame",
+
+    executeRpc : function(urlParameter, afterDone) {
         var game = {
             id : "test",
             scripts : {
@@ -9,7 +12,7 @@ creos.rpcGetGame = creos.RpcActionBase.extend({
         };
 
         afterDone({
-            response : creos.RpcResponse.createOkWithModel(game)
+            response : RpcResponse.createOkWithModel(game)
         });
     }
 

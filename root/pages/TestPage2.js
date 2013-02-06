@@ -1,9 +1,12 @@
-pages.TestPage2 = Page.extend({
+Pages.registerPage(
+    {
 
-    path : "/myPage2",
+        id : "TestPage2",
+        path : "/myPage2",
 
-    prepare : function() {
-        this.setViewPath("root/pages/TestPage2.html");
+        prepare : function() {
+            this.setViewPath("root/pages/TestPage2.html");
+        }
+
     }
-
-});
+);

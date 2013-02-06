@@ -5,11 +5,14 @@ var ServletBase = Class.extend({
         this.response = response;
         if (this.request == undefined) throw "Servlets constructor must get request as first parameter.";
         if (this.response == undefined) throw "Servlets constructor must get response as second parameter.";
-        this.postInit();
     },
 
-    postInit : function() {
+    getRequest : function() {
+        return this.request;
+    },
 
+    getResponse : function() {
+        return this.response;
     },
 
     execute : function() {
