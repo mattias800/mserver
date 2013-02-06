@@ -1,5 +1,7 @@
 components.TestComponent = Component.extend({
 
+    type : "TestComponent",
+
     prepare : function() {
         this.setViewPath("root/components/TestComponent.html");
 

@@ -1,11 +1,13 @@
 function mcomponent(args) {
+    args = args || {};
+
     var startTagToken = "{{";
     var endTagToken = "}}";
     var that = this;
     var list;
     var result = {};
-    var placeHolder = undefined;
 
+    var id = args.id || Math.floor(Math.random() * 1000); // Used for testing only
     var rootModel;
 
     var mainArgs = args;
@@ -18,9 +20,6 @@ function mcomponent(args) {
     args.children = args.children || {};
     args.iter = args.iter || {};
     args.maxTagCount = args.maxTagCount || 1000;
-    args.placeHolder = args.placeHolder || undefined;
-    args.placeHolderId = args.placeHolderId || undefined;
-    args.clearPlaceHolderBeforeRender = args.clearPlaceHolderBeforeRender !== undefined ? args.clearPlaceHolderBeforeRender : true;
     args.logTags = args.logTags !== undefined ? args.logTags : false;
     args.afterRender = args.afterRender || undefined;
     args.throwOnError = args.throwOnError !== undefined ? args.throwOnError : false; // Used for unit testing.
@@ -30,17 +29,15 @@ function mcomponent(args) {
             return { result : false, message : "Child id contains space. Must be alphanumeric. id = '" + id + "'"};
         } else if (/[^a-zA-Z0-9]/.test(id)) {
             return { result : false, message : "Child id is not alphanumeric. Must be alphanumeric. id = '" + id + "'"};
+        } else if (typeof child._isComponent !== "function") {
+            return { result : false, message : "Child is not an mcomponent object."};
+        } else if (!child._isComponent()) {
+            return { result : false, message : "Child is not an mcomponent object."};
         }
         return { result : true };
     };
 
     var init = function() {
-        if (args.placeHolder) {
-            placeHolder = args.placeHolder;
-        } else if (args.placeHolderId) {
-            placeHolder = document.getElementById(args.placeHolderId);
-            if (!placeHolder) throw "Unable to find placeholder in DOM with id = '" + args.placeHolderId + "'";
-        }
 
         if (args.model) {
             rootModel = args.model;
@@ -125,6 +122,7 @@ function mcomponent(args) {
      */
     var ExecutionContext_ = function() {
 
+        this.id = id;
         this.executionStack = []; // DO NOT RENAME THIS VARIABLE. Compiled code is dependant on this name.
         this.children = mainArgs.children;
         this.globals = {};
@@ -181,6 +179,12 @@ function mcomponent(args) {
         /**
          * Children
          */
+
+        this.getChildCount = function() {
+            var counter = 0;
+            for (var id in this.children) counter++;
+            return counter;
+        };
 
         this.getChildWithId = function(id) {
             return this.children[id];
@@ -401,13 +405,23 @@ function mcomponent(args) {
                     return that.executionStack[0].model;
                 },
                 getIterator : function(iteratorName) {
-                    if (iteratorName == "iterBeforeRender") {
-                        console.log("OK VAFAN!");
-                        console.log("iteratorName", iteratorName);
-                    }
                     executionContext.ensureIterator(iteratorName);
                     var i = executionContext.getIteratorWithName(iteratorName);
                     return i ? i.getPublicInterface() : undefined;
+                },
+                _assert : {
+                    componentIdEqualsExecutionContextId : function() {
+                        return id == executionContext.id ?
+                            true :
+                            id + " != " + executionContext.id;
+                    },
+                    getExecutionContext : function() {
+                        return executionContext;
+                    },
+                    childCount : function(expectedCount) {
+                        var got = executionContext.getChildCount();
+                        if (got !== expectedCount) throw "Wrong number of children. Expected " + expectedCount + ", got " + got + ".";
+                    }
                 }
             }
         };
@@ -1099,6 +1113,8 @@ function mcomponent(args) {
 
     var _setViewFromComponent = function(component) {
         _setView(component._getView());
+        // Must recompile the source, since the compiled code now references the other components scope.
+        view.template = compile({tree : getView().tree});
     };
 
     var getView = function() {
@@ -1954,6 +1970,10 @@ function mcomponent(args) {
             return executionContext.hasRenderErrors();
         },
 
+        _isComponent : function() {
+            return true;
+        },
+
         _afterRender : function() {
 
             executionContext.afterRender();
@@ -1971,6 +1991,14 @@ function mcomponent(args) {
 
         getResult : function() {
             return result;
+        },
+
+        _getId : function() {
+            return id;
+        },
+
+        _getExecutionContext : function() {
+            return executionContext;
         },
 
         _getNiterParametersFromTagParameter : function(name) {
@@ -2069,6 +2097,10 @@ function mcomponent(args) {
         _assertCompileLogSource : function() {
             var t = compile({tree : getView().tree, logSource : true});
             return t.render();
+        },
+
+        _assertComponentIdEqualsExecutionContextId : function() {
+            return id == executionContext.id;
         },
 
         _getTemplate : function() {

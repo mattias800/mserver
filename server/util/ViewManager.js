@@ -11,7 +11,7 @@ var ViewManager = Class.extend({
         this.cache = {};
     },
 
-    getViewForPath : function(path) {
+    getViewComponentForPath : function(path) {
         if (!this.cache[path]) this.addView(path);
         return this.cache[path];
     },

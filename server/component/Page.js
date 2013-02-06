@@ -5,6 +5,8 @@ var Page = Component.extend({
     init : function(args) {
         this._super(args);
 
+        this._setComponentManager(args.componentManager);
+
         // References
         this.jsReferenceList = [];
         this.cssReferenceList = [];
@@ -26,7 +28,13 @@ var Page = Component.extend({
     render : function() {
         if (!this._getMcomponent()) throw "Trying to render Page, but Page has no mcomponent.";
         return this._render();
+    },
+
+    _render : function() {
+        this._beforeRender();
+        return this.mcomponent.render().html;
     }
+
 
 });
 
