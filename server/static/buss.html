@@ -183,14 +183,14 @@
 
     var component;
 
-    $(function () {
+    $(function() {
 
         component = $("#listView").mcomponent({
-            placeHolderId:"listPlaceHolder"
+            placeHolderId : "listPlaceHolder"
         });
 
         updateTimeTable();
-        setInterval(function () {
+        setInterval(function() {
             updateTimeTable();
         }, 20000);
 
@@ -199,9 +199,9 @@
     function updateTimeTable() {
         $("#loadingAnimation").show();
         $.ajax({
-            url:"/rpc/GetBus",
-            dataType:"json"
-        }).done(function (response) {
+            url : "/rpc/GetBus",
+            dataType : "json"
+        }).done(function(response) {
                     var model = buildModel(response.model);
                     console.log("builtModel", model);
                     component.setModel(model);
@@ -253,21 +253,21 @@
         // Sort rides according to arrival
         for (var trackId in tracks) {
             var track = tracks[trackId];
-            track.sort(function (a, b) {
+            track.sort(function(a, b) {
                 return a.rtTimeObj.getTime() - b.rtTimeObj.getTime();
             });
         }
 
         // Sort tracks according to name
         var trackList = mapToList(tracks);
-        trackList.sort(function (a, b) {
+        trackList.sort(function(a, b) {
             return a.key.localeCompare(b.key);
         });
 
         return {
-            tracks:trackList,
-            serverDate:modelFromServer.departureInfo.DepartureBoard.serverdate,
-            serverTime:modelFromServer.departureInfo.DepartureBoard.servertime
+            tracks : trackList,
+            serverDate : modelFromServer.departureInfo.DepartureBoard.serverdate,
+            serverTime : modelFromServer.departureInfo.DepartureBoard.servertime
         };
     }
 
@@ -277,8 +277,8 @@
         for (var id in map) {
             if (limit !== undefined && counter >= limit) break;
             list.push({
-                key:id,
-                value:map[id]
+                key : id,
+                value : map[id]
             });
             counter++;
         }

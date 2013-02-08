@@ -7,5 +7,4 @@ Pages.registerRpc({
 
     }
 
-
 });

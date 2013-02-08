@@ -6,22 +6,20 @@ var Rpc = require("../rpc/Rpc.js");
 var Component = require("../component/Component.js");
 var RpcResponse = require("../rpc/RpcResponse.js");
 
-var ComponentManager = Class.extend({
+var ResourceLoader = Class.extend({
 
     init : function(args) {
 
         this.router = args.router;
         this.viewManager = args.viewManager;
         this.mserver = args.mserver;
+        this.resourceDir = args.resourceDir;
 
-        if (!this.router) throw "ComponentManagers requires args.router.";
-        if (!this.viewManager) throw "ComponentManagers requires args.viewManager.";
+        if (!this.router) throw "ComponentManager requires args.router.";
+        if (!this.viewManager) throw "ComponentManager requires args.viewManager.";
+        if (!this.resourceDir) throw "ComponentManager requires args.resourceDir.";
 
-        this.componentsDirectory = "./root/components/";
-        this.pagesDirectory = "./root/pages/";
-        this.rpcDirectory = "./root/rpc/";
-
-        this.fileList = this.findAllPageJsPaths();
+        this.fileList = this.findAllResourcePaths(this.resourceDir);
 
         this.sandbox = {};
 
@@ -115,34 +113,17 @@ var ComponentManager = Class.extend({
         return this.sandbox;
     },
 
-    findAllPageJsPaths : function() {
+    findAllResourcePaths : function(dir) {
         var that = this;
         var fileList = [];
         var file;
 
-        var files = fs.readdirSync(this.componentsDirectory);
-        for (var i = 0; i < files.length; i++) {
-            file = files[i];
-            if (that.fileNameIsJsFile(file)) {
-                fileList.push(that.componentsDirectory + file);
-            }
-        }
-
-        files = fs.readdirSync(this.pagesDirectory);
+        var files = fs.readdirSync(dir);
 
         for (var i = 0; i < files.length; i++) {
             file = files[i];
             if (that.fileNameIsJsFile(file)) {
-                fileList.push(that.pagesDirectory + file);
-            }
-        }
-
-        files = fs.readdirSync(this.rpcDirectory);
-
-        for (var i = 0; i < files.length; i++) {
-            file = files[i];
-            if (that.fileNameIsJsFile(file)) {
-                fileList.push(that.rpcDirectory + file);
+                fileList.push(that.dir + file);
             }
         }
 
@@ -173,5 +154,5 @@ var ComponentManager = Class.extend({
 
 });
 
-module.exports = ComponentManager;
+module.exports = ResourceLoader;
 

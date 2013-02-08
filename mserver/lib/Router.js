@@ -3,7 +3,7 @@ var PageServlet = require("./servlets/impl/PageServlet.js");
 var RpcServlet = require("./servlets/impl/RpcServlet.js");
 
 var TestPage = {}; //require("../root/pages/TestPage.js");
-var ComponentManager = require("./util/ComponentManager.js");
+var ResourceLoader = require("./util/ResourceLoader.js");
 var ViewManager = require("./util/ViewManager.js");
 
 var Router = Class.extend({
@@ -11,15 +11,23 @@ var Router = Class.extend({
     init : function(args) {
 
         this.mserver = args.mserver;
+        this.resourceDir = args.resourceDir;
+        this.staticDir = args.staticDir;
 
         this.pageClassPerPath = {};
         this.rpcClassPerPath = {};
         this.webSocketClassPerPath = {};
 
         this.viewManager = new ViewManager({router : this});
-        this.componentManager = new ComponentManager({mserver : this.mserver, router : this, viewManager : this.viewManager});
 
-        this.sandbox = this.componentManager.sandbox;
+        this.resourceLoader = new ResourceLoader({
+            mserver : this.mserver,
+            router : this,
+            viewManager : this.viewManager,
+            resourceDir : this.resourceDir
+        });
+
+        this.sandbox = this.resourceLoader.sandbox;
 
     },
 
@@ -61,28 +69,28 @@ var Router = Class.extend({
         var PageClass = this.pageClassPerPath[path];
 
         if (PageClass) {
-            return new PageServlet(request, response, PageClass, this.componentManager);
+            return new PageServlet(request, response, PageClass, this.resourceLoader);
         }
 
         var RpcClass = this.rpcClassPerPath[path];
 
         if (RpcClass) {
-            return new RpcServlet(request, response, RpcClass, this.componentManager);
+            return new RpcServlet(request, response, RpcClass, this.resourceLoader);
         }
 
         var WebSocketClass = this.webSocketClassPerPath[path];
 
         if (WebSocketClass) {
-            return new WebSocketServlet(request, response, WebSocketClass, this.componentManager);
+            return new WebSocketServlet(request, response, WebSocketClass, this.resourceLoader);
         }
 
         if (path == "/") {
             // Default to index.html in root, when no Page has been registered there.
-            return new FileServlet(request, response, "index.html");
+            return new FileServlet(request, response, this.staticDir, "index.html");
         }
 
         // If nothing else works, use static files.
-        return new FileServlet(request, response);
+        return new FileServlet(request, response, path, this.staticDir);
 
     }
 

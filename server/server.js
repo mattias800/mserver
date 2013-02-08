@@ -1,3 +1,7 @@
 var mserver = require("../mserver/");
 
-var server = new mserver.startServer();
+var server = new mserver.startServer({
+    staticDir : "static",
+    resourceDir : "resources"
+});
+
