@@ -4,12 +4,14 @@ mserver.registerComponent({
 
     component : {
 
+        init : function(args) {
+            this.model = args.model;
+        },
+
         prepare : function() {
             this.setViewPath("resources/components/TestComponent.html");
 
-            var model = {user : {name : "mattias", age : 32}};
-
-            this.setModel(model);
+            this.setModel(this.model);
         }
     }
 

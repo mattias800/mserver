@@ -8,7 +8,9 @@ mserver.registerPage(
 
             this.setModel({name : "Jenny"});
 
-            this.addChild("content", new components.TestComponent());
+            var model = {user : {name : "mattias", age : 32}};
+
+            this.addChild("content", new components.TestComponent({model : model}));
         },
 
         afterPrepare : function() {
