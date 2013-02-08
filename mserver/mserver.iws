@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a1ce67a-4527-416d-a33a-81fbd65eda58" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/websocket/WebSocket.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/servlets/impl/WebSocketServlet.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/util/ComponentManager.js" afterPath="$PROJECT_DIR$/lib/util/ComponentManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Router.js" afterPath="$PROJECT_DIR$/lib/Router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/main.js" afterPath="$PROJECT_DIR$/test/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mserver.iws" afterPath="$PROJECT_DIR$/mserver.iws" />
     </list>
     <ignored path="mserver.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360324368921" ignored="false" />
+    <file path="/Dummy.txt" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360325351889" ignored="false" />
     <file path="/ComponentManager.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360325091752" ignored="false" />
     <file path="/TestPage.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360104585817" ignored="false" />
     <file path="/a.dummy" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360109179531" ignored="false" />
@@ -701,7 +696,11 @@
       <created>1360324370812</created>
       <updated>1360324370812</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Adding support for WebSocket.">
+      <created>1360325353692</created>
+      <updated>1360325353692</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -771,7 +770,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed everything that is not part of mserver.&#10;Including root. mserver can no longer run from this directory, it is now a module and can only be included from other projects." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding support for WebSocket." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -799,6 +798,7 @@
     <MESSAGE value="Restructuring to create an official Node module.&#10;Added lib, test and bin directories.&#10;All of mserver is contained within lib.&#10;Added package.json.&#10;mserver.js is now main.js. ./lib/main.js" />
     <MESSAGE value="Router and ComponentManager now have a reference to mserver.&#10;Added more default RpcResponse objects.&#10;GetGame actually uses mongodb :)" />
     <MESSAGE value="Removed everything that is not part of mserver.&#10;Including root. mserver can no longer run from this directory, it is now a module and can only be included from other projects." />
+    <MESSAGE value="Adding support for WebSocket." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
