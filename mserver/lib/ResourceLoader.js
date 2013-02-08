@@ -1,47 +1,49 @@
 var fs = require('fs');
 var path = require("path");
 var vm = require("vm");
-var Page = require("../component/Page.js");
-var Rpc = require("../rpc/Rpc.js");
-var Component = require("../component/Component.js");
-var RpcResponse = require("../rpc/RpcResponse.js");
+var Page = require("./component/Page.js");
+var Rpc = require("./rpc/Rpc.js");
+var Component = require("./component/Component.js");
+var RpcResponse = require("./rpc/RpcResponse.js");
 
-var ComponentManager = Class.extend({
+var ResourceLoader = Class.extend({
 
     init : function(args) {
 
         this.router = args.router;
         this.viewManager = args.viewManager;
         this.mserver = args.mserver;
+        this.resourceDir = args.resourceDir;
+        this.globals = args.globals;
+        this.managers = {};
+        this.components = {};
 
-        if (!this.router) throw "ComponentManagers requires args.router.";
-        if (!this.viewManager) throw "ComponentManagers requires args.viewManager.";
-
-        this.componentsDirectory = "./root/components/";
-        this.pagesDirectory = "./root/pages/";
-        this.rpcDirectory = "./root/rpc/";
-
-        this.fileList = this.findAllPageJsPaths();
+        if (!this.router) throw "ComponentManager requires args.router.";
+        if (!this.viewManager) throw "ComponentManager requires args.viewManager.";
+        if (!this.resourceDir) throw "ComponentManager requires args.resourceDir.";
 
         this.sandbox = {};
 
         this.sandbox.Component = Component;
         this.sandbox.Page = Page;
         this.sandbox.RpcResponse = RpcResponse;
-        this.sandbox.Pages = this.createPagesObject();
+        this.sandbox.mserver = this.createInterface();
 
         this.sandbox.console = console;
         this.sandbox.require = require;
         this.sandbox.router = this.router;
-        this.sandbox.components = {};
+        this.sandbox.components = this.components;
+        this.sandbox.globals = this.globals;
+        this.sandbox.managers = this.managers;
 
         this.context = vm.createContext(this.sandbox);
 
+        this.fileList = this.findAllResourcePaths(this.resourceDir);
         this.includeAllFiles();
 
     },
 
-    createPagesObject : function() {
+    createInterface : function() {
         var that = this;
         return {
             registerPage : function(pageArgs) {
@@ -52,8 +54,28 @@ var ComponentManager = Class.extend({
             },
             registerWebSocket : function(webSocketArgs) {
                 that.registerWebSocket(webSocketArgs)
+            },
+            registerManager : function(managerArgs) {
+                that.registerManager(managerArgs)
+            },
+            registerComponent : function(componentArgs) {
+                that.registerComponent(componentArgs)
             }
         };
+    },
+
+    registerManager : function(managerArgs) {
+        if (!managerArgs.id) throw "Trying to register manager, but no id was specified. Id is required.";
+        if (!managerArgs.manager) throw "Trying to register manager, id was specified but not the manager object.";
+        this.managers[managerArgs.id] = managerArgs.manager;
+        console.log("Registered manager with id=" + managerArgs.id);
+    },
+
+    registerComponent : function(componentArgs) {
+        if (!componentArgs.id) throw "Trying to register component, but no id was specified. Id is required.";
+        if (!componentArgs.component) throw "Trying to register component, id was specified but not the component object.";
+        this.components[componentArgs.id] = Component.extend(componentArgs.component);
+        console.log("Registered component with id=" + componentArgs.id);
     },
 
     validatePageArgs : function(pageArgs) {
@@ -115,34 +137,28 @@ var ComponentManager = Class.extend({
         return this.sandbox;
     },
 
-    findAllPageJsPaths : function() {
+    findAllResourcePaths : function(dir) {
         var that = this;
         var fileList = [];
         var file;
 
-        var files = fs.readdirSync(this.componentsDirectory);
-        for (var i = 0; i < files.length; i++) {
-            file = files[i];
-            if (that.fileNameIsJsFile(file)) {
-                fileList.push(that.componentsDirectory + file);
-            }
-        }
-
-        files = fs.readdirSync(this.pagesDirectory);
+        var files = fs.readdirSync(dir);
 
         for (var i = 0; i < files.length; i++) {
             file = files[i];
-            if (that.fileNameIsJsFile(file)) {
-                fileList.push(that.pagesDirectory + file);
-            }
-        }
+            var fullFilePath = dir + "/" + file;
 
-        files = fs.readdirSync(this.rpcDirectory);
+            var stat = fs.statSync(fullFilePath);
+            if (stat.isDirectory()) {
+                var childFiles = this.findAllResourcePaths(fullFilePath);
+                for (var j = 0; j < childFiles.length; j++) {
+                    fileList.push(childFiles[j]);
 
-        for (var i = 0; i < files.length; i++) {
-            file = files[i];
-            if (that.fileNameIsJsFile(file)) {
-                fileList.push(that.rpcDirectory + file);
+                }
+            } else if (stat.isFile()) {
+                if (that.fileNameIsJsFile(file)) {
+                    fileList.push(fullFilePath);
+                }
             }
         }
 
@@ -173,5 +189,5 @@ var ComponentManager = Class.extend({
 
 });
 
-module.exports = ComponentManager;
+module.exports = ResourceLoader;
 

@@ -7,7 +7,7 @@ var PageServlet = ServletBase.extend({
         this._super(request, response);
         if (PageClass == undefined) throw "PageServlet initialization error, got undefined PageClass.";
         this.PageClass = PageClass;
-        this.pageObj = new PageClass({componentManager : componentManager});
+        this.pageObj = new PageClass({resourceLoader : componentManager});
     },
 
     execute : function(afterDone) {

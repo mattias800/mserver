@@ -8,9 +8,12 @@ var ContentHandler = require("../../ContentHandler.js");
 
 var FileServlet = ServletBase.extend({
 
-    init : function(request, response, filename) {
+    init : function(request, response, staticDir, filename) {
         this._super(request, response);
+        this.staticDir = staticDir;
         this.filename = filename;
+        if (!this.staticDir) throw "FileServlet must get staticDir as argument.";
+        if (!this.filename) throw "FileServlet must get filename as argument.";
     },
 
     fileExists : function(pathToFile, cb) {
@@ -29,22 +32,20 @@ var FileServlet = ServletBase.extend({
         var filename = this.filename;
         var that = this;
 
-        var pathName = filename ?
-            "root/static/" + filename : // Constructor got explicit filename.
-            "root/static" + url.parse(request.url).pathname; // Resolve filename from URL path.
+        var fullFilePath = this.staticDir + "/" + filename;
 
-        var fullPath = pathName; //path.join(process.cwd(), pathName);
+        var fullPath = fullFilePath; //path.join(process.cwd(), pathName);
 
         this.fileExists(fullPath, function(exists) {
             if (!exists) {
-                console.log("File does not exist, redirecting to NotFoundServlet: " + pathName);
+                console.log("File does not exist, redirecting to NotFoundServlet: " + fullFilePath);
                 that.createRedirectionServlet(NotFoundServlet).execute(afterDone);
             } else {
                 var contentHandler = new ContentHandler();
 
                 fs.readFile(fullPath, "binary", function(err, file) {
                     if (err) {
-                        console.log("File exists, but cannot read it: " + pathName);
+                        console.log("File exists, but cannot read it: " + fullFilePath);
                         afterDone({
                             code : 500,
                             header : {"Content-Type" : "text/plain"},
@@ -53,7 +54,7 @@ var FileServlet = ServletBase.extend({
                     } else {
                         afterDone({
                             code : 200,
-                            header : contentHandler.getHeaderForPath(pathName),
+                            header : contentHandler.getHeaderForPath(fullFilePath),
                             fileBuffer : file
                         });
                     }

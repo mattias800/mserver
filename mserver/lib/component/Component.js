@@ -33,12 +33,12 @@ var Component = Class.extend({
     },
 
     _getComponentManager : function() {
-        return this.componentManager;
+        return this.resourceLoader;
     },
 
     _setComponentManager : function(cm) {
-        this.componentManager = cm;
-        this.viewManager = this.componentManager.viewManager;
+        this.resourceLoader = cm;
+        this.viewManager = this.resourceLoader.viewManager;
         // Set for children as well.
         for (var id in this.children) {
             this.children[id]._setComponentManager(cm);

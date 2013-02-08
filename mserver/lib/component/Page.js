@@ -5,7 +5,7 @@ var Page = Component.extend({
     init : function(args) {
         this._super(args);
 
-        this._setComponentManager(args.componentManager);
+        this._setComponentManager(args.resourceLoader);
 
         // References
         this.jsReferenceList = [];

@@ -1,11 +1,11 @@
-Pages.registerPage(
+mserver.registerPage(
     {
 
         id : "TestPage2",
         path : "/myPage2",
 
         prepare : function() {
-            this.setViewPath("root/pages/TestPage2.html");
+            this.setViewPath("resources/pages/TestPage2.html");
         }
 
     }

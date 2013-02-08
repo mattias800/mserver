@@ -1,4 +1,4 @@
-Pages.registerRpc({
+mserver.registerRpc({
 
     id : "GetBus",
     path : "/rpc/StoreGame",
@@ -6,6 +6,5 @@ Pages.registerRpc({
     executeRpc : function(urlParameter, afterDone) {
 
     }
-
 
 });

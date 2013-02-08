@@ -1,7 +1,7 @@
 var http = require('http');
 var url = require("url");
 
-var Class = require("resig-class");
+var Class = require("./support/resig-class/");
 
 var Router = require("./Router.js");
 var Component = require("./component/Component.js");
@@ -15,13 +15,30 @@ if (Page == undefined) throw "Unable to include Page.";
 if (Rpc == undefined) throw "Unable to include Rpc.";
 if (RpcResponse == undefined) throw "Unable to include RpcResponse.";
 
+var validateDir = function(dir) {
+    // TODO: Check that dir exists.
+};
+
 var Server = Class.extend({
 
-    init : function() {
+    init : function(args) {
+
+        var resourceDir = args && args.resourceDir ? args.resourceDir : "./resource/";
+        var staticDir = args && args.staticDir ? args.staticDir : "./static/";
+        var globals = args.globals;
+
+        validateDir(resourceDir);
+        validateDir(staticDir);
 
         var that = this;
 
-        this.router = new Router({mserver : that});
+        this.router = new Router({
+            mserver : that,
+            resourceDir : resourceDir,
+            staticDir : staticDir,
+            globals : globals
+        });
+
         if (!this.router) throw "Unable to create Router.";
 
         //  Get the environment variables we need.
@@ -62,8 +79,8 @@ var Server = Class.extend({
 
 });
 
-var startServer = function() {
-    return new Server();
+var startServer = function(args) {
+    return new Server(args);
 };
 
 module.exports.startServer = startServer;
