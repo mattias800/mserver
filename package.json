@@ -2,7 +2,7 @@
 	"name" : "mserver",
 	"version" : "0.0.0",
 	"description" : "A simple web application framework for Node.",
-	"main" : "server/main.js",
+	"main" : "lib/main.js",
 	"directories" : {
 		"test" : "test"
 	},
