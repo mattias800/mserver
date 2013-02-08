@@ -1,5 +1,3 @@
-var db = globals.db;
-
 mserver.registerManager(
     {
         id : "GameManager",
@@ -7,7 +5,7 @@ mserver.registerManager(
         manager : {
 
             getGameWithId : function(id, afterDone) {
-                db.collection("games").findOne({id : id }, function(err, game) {
+                globals.db.collection("games").findOne({id : id }, function(err, game) {
                     afterDone(game, err);
                 });
             }

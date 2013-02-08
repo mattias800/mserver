@@ -4,7 +4,7 @@ mserver.registerPage(
         path : "/myPage",
 
         prepare : function() {
-            this.setViewPath("root/pages/TestPage.html");
+            this.setViewPath("resources/pages/TestPage.html");
 
             this.setModel({name : "Jenny"});
 
