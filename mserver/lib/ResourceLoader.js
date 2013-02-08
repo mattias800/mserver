@@ -1,10 +1,10 @@
 var fs = require('fs');
 var path = require("path");
 var vm = require("vm");
-var Page = require("../component/Page.js");
-var Rpc = require("../rpc/Rpc.js");
-var Component = require("../component/Component.js");
-var RpcResponse = require("../rpc/RpcResponse.js");
+var Page = require("./component/Page.js");
+var Rpc = require("./rpc/Rpc.js");
+var Component = require("./component/Component.js");
+var RpcResponse = require("./rpc/RpcResponse.js");
 
 var ResourceLoader = Class.extend({
 
@@ -122,8 +122,19 @@ var ResourceLoader = Class.extend({
 
         for (var i = 0; i < files.length; i++) {
             file = files[i];
-            if (that.fileNameIsJsFile(file)) {
-                fileList.push(that.dir + file);
+            var fullFilePath = dir + "/" + file;
+
+            var stat = fs.statSync(fullFilePath);
+            if (stat.isDirectory()) {
+                var childFiles = this.findAllResourcePaths(fullFilePath);
+                for (var j = 0; j < childFiles.length; j++) {
+                    fileList.push(childFiles[j]);
+
+                }
+            } else if (stat.isFile()) {
+                if (that.fileNameIsJsFile(file)) {
+                    fileList.push(fullFilePath);
+                }
             }
         }
 

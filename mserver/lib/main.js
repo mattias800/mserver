@@ -1,7 +1,7 @@
 var http = require('http');
 var url = require("url");
 
-var Class = require("resig-class");
+var Class = require("./support/resig-class/");
 
 var Router = require("./Router.js");
 var Component = require("./component/Component.js");

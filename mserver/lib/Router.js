@@ -3,7 +3,7 @@ var PageServlet = require("./servlets/impl/PageServlet.js");
 var RpcServlet = require("./servlets/impl/RpcServlet.js");
 
 var TestPage = {}; //require("../root/pages/TestPage.js");
-var ResourceLoader = require("./util/ResourceLoader.js");
+var ResourceLoader = require("./ResourceLoader.js");
 var ViewManager = require("./util/ViewManager.js");
 
 var Router = Class.extend({
