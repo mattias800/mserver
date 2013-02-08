@@ -16,36 +16,3 @@ describe("mserver", function() {
     });
 });
 
-
-var e = {
-    "name" : "mserver",
-    "version" : "0.0.0",
-    "description" : "A simple web application framework for Node.",
-    "main" : "server/main.js",
-    "directories" : {
-        "test" : "test"
-    },
-    "dependencies" : {
-        "resig-class" : "~0.1.0"
-    },
-    "devDependencies" : {
-        // Use any version
-        "mocha" : "",
-        "should" : ""
-    },
-    "scripts" : {
-        "test" : "mocha test/*.js",
-        "start" : "node server.js"
-    },
-    "repository" : {
-        "type" : "git",
-        "url" : "/Users/mono/Dropbox/repos/mserver/"
-    },
-    "keywords" : [
-        "mserver",
-        "mcomponent"
-    ],
-    "author" : "Mattias Andersson",
-    "license" : "BSD",
-    "readmeFilename" : "README"
-}

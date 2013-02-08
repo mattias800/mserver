@@ -2,47 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a1ce67a-4527-416d-a33a-81fbd65eda58" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Class.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/deplist.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/read.me" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/resig-class/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/resig-class/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/resig-class/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/npm_global_module_list" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/.svn/all-wcprops" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/.svn/entries" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/.svn/text-base/404.html.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/.svn/text-base/buss.html.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/.svn/text-base/error.html.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/.svn/text-base/index.html.svn-base" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/components/TestComponent.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/components/TestComponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/pages/TestPage.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/pages/TestPage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/pages/TestPage2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/pages/TestPage2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/root.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/rpc/GetBus.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/rpc/GetGame.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/rpc/StoreGame.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/static/404.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/static/buss.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/static/error.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/static/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/static/images/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/static/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/static/js/.svn/all-wcprops" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/static/js/.svn/entries" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/static/js/jquery-1.8.1.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/root/static/js/mcomponent.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README" afterPath="$PROJECT_DIR$/README" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/websocket/WebSocket.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/servlets/impl/WebSocketServlet.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/util/ComponentManager.js" afterPath="$PROJECT_DIR$/lib/util/ComponentManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Router.js" afterPath="$PROJECT_DIR$/lib/Router.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/main.js" afterPath="$PROJECT_DIR$/test/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mserver.iws" afterPath="$PROJECT_DIR$/mserver.iws" />
     </list>
     <ignored path="mserver.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360323377465" ignored="false" />
-    <file path="/ComponentManager.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360323260903" ignored="false" />
+    <file path="/Dummy.txt" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360324368921" ignored="false" />
+    <file path="/ComponentManager.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360325091752" ignored="false" />
     <file path="/TestPage.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360104585817" ignored="false" />
     <file path="/a.dummy" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360109179531" ignored="false" />
     <file path="/TestPage2.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360103786470" ignored="false" />
@@ -52,7 +22,7 @@
     <file path="/mserver.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360105292521" ignored="false" />
     <file path="/server.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360105308634" ignored="false" />
     <file path="/RpcServlet.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360109047746" ignored="false" />
-    <file path="/Router.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360323238598" ignored="false" />
+    <file path="/Router.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360325186759" ignored="false" />
     <file path="/GetBus.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360109124523" ignored="false" />
     <file path="/ServletBase.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360107815980" ignored="false" />
     <file path="/GetGame.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360322885422" ignored="false" />
@@ -61,6 +31,8 @@
     <file path="/main.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360323211023" ignored="false" />
     <file path="/mserver" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360229562306" ignored="false" />
     <file path="/RpcResponse.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360322492729" ignored="false" />
+    <file path="/WebSocket.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360325005204" ignored="false" />
+    <file path="/WebSocketServlet.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360325247084" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,52 +94,16 @@
       <file leaf-file-name="Router.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/Router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="47" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
+            <state line="74" column="29" selection-start="3050" selection-end="3050" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ComponentManager.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/util/ComponentManager.js">
+      <file leaf-file-name="WebSocketServlet.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/servlets/impl/WebSocketServlet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="1181" selection-end="1181" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mserver" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/mserver">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="140" selection-end="140" vertical-scroll-proportion="0.0">
+            <state line="12" column="49" selection-start="544" selection-end="544" vertical-scroll-proportion="0.22304833">
               <folding />
             </state>
           </provider>
@@ -182,10 +118,55 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="RpcServlet.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/servlets/impl/RpcServlet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileServlet.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/servlets/impl/FileServlet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PageServlet.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/servlets/impl/PageServlet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="16" selection-start="0" selection-end="925" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ComponentManager.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/util/ComponentManager.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="105" column="41" selection-start="3578" selection-end="3578" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WebSocket.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/websocket/WebSocket.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="5" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Rpc.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/rpc/Rpc.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="46" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
+            <state line="15" column="0" selection-start="0" selection-end="288" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -218,22 +199,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/server/servlets/impl/RpcServlet.js" />
-        <option value="$PROJECT_DIR$/root/rpc/GetBus.js" />
         <option value="$PROJECT_DIR$/server/util/ComponentManager.js" />
         <option value="$PROJECT_DIR$/server/rpc/RpcResponse.js" />
         <option value="$PROJECT_DIR$/root/pages/TestPage.html" />
         <option value="$PROJECT_DIR$/server/Router.js" />
         <option value="$PROJECT_DIR$/root/pages/TestPage.js" />
-        <option value="$PROJECT_DIR$/test/main.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/bin/mserver" />
         <option value="$PROJECT_DIR$/lib/rpc/RpcResponse.js" />
         <option value="$PROJECT_DIR$/root/rpc/GetGame.js" />
         <option value="$PROJECT_DIR$/lib/main.js" />
-        <option value="$PROJECT_DIR$/lib/Router.js" />
-        <option value="$PROJECT_DIR$/lib/util/ComponentManager.js" />
         <option value="$PROJECT_DIR$/README" />
+        <option value="$PROJECT_DIR$/test/main.js" />
+        <option value="$PROJECT_DIR$/lib/websocket/WebSocket.js" />
+        <option value="$PROJECT_DIR$/lib/util/ComponentManager.js" />
+        <option value="$PROJECT_DIR$/lib/Router.js" />
+        <option value="$PROJECT_DIR$/lib/servlets/impl/WebSocketServlet.js" />
       </list>
     </option>
   </component>
@@ -296,6 +277,128 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="websocket" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="util" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="servlets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rpc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -594,7 +697,11 @@
       <created>1360323379531</created>
       <updated>1360323379531</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Removed everything that is not part of mserver.&#10;Including root. mserver can no longer run from this directory, it is now a module and can only be included from other projects.">
+      <created>1360324370812</created>
+      <updated>1360324370812</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -664,7 +771,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Router and ComponentManager now have a reference to mserver.&#10;Added more default RpcResponse objects.&#10;GetGame actually uses mongodb :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed everything that is not part of mserver.&#10;Including root. mserver can no longer run from this directory, it is now a module and can only be included from other projects." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -691,65 +798,15 @@
     <MESSAGE value="Default to index.html in root." />
     <MESSAGE value="Restructuring to create an official Node module.&#10;Added lib, test and bin directories.&#10;All of mserver is contained within lib.&#10;Added package.json.&#10;mserver.js is now main.js. ./lib/main.js" />
     <MESSAGE value="Router and ComponentManager now have a reference to mserver.&#10;Added more default RpcResponse objects.&#10;GetGame actually uses mongodb :)" />
+    <MESSAGE value="Removed everything that is not part of mserver.&#10;Including root. mserver can no longer run from this directory, it is now a module and can only be included from other projects." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/servlets/impl/RpcServlet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1431" selection-end="1431" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="8" selection-start="427" selection-end="427" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1360112564000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/mserver">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="140" selection-end="140" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/rpc/Rpc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="46" selection-start="187" selection-end="187" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/rpc/RpcResponse.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="53" selection-start="993" selection-end="993" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="48" selection-start="747" selection-end="747" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="47" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/ComponentManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1181" selection-end="1181" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -771,6 +828,94 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1360324502000" expanded="true" signature="-1:-1" placeholder="{&quot;test&quot;: &quot;mocha test/*.js&quot;...}" />
+            <marker date="1360324502000" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1360324502000" expanded="true" signature="-1:-1" placeholder="[...]" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mcomponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rpc/Rpc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="0" selection-end="288" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rpc/RpcResponse.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="53" selection-start="993" selection-end="993" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/websocket/WebSocket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="5" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/util/ComponentManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="41" selection-start="3578" selection-end="3578" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="29" selection-start="3050" selection-end="3050" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/servlets/impl/RpcServlet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/servlets/impl/FileServlet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/servlets/impl/PageServlet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="16" selection-start="0" selection-end="925" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="48" selection-start="747" selection-end="747" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/servlets/impl/WebSocketServlet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="49" selection-start="544" selection-end="544" vertical-scroll-proportion="0.22304833">
           <folding />
         </state>
       </provider>
