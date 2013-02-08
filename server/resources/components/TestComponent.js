@@ -1,11 +1,16 @@
-components.TestComponent = Component.extend({
+mserver.registerComponent({
 
-    type : "TestComponent",
+    id : "TestComponent",
 
-    prepare : function() {
-        this.setViewPath("resources/components/TestComponent.html");
+    component : {
 
-        this.setModel({user : {name : "mattias", age : 32}});
+        prepare : function() {
+            this.setViewPath("resources/components/TestComponent.html");
+
+            var model = {user : {name : "mattias", age : 32}};
+
+            this.setModel(model);
+        }
     }
 
 });

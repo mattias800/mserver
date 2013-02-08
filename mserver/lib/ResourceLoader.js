@@ -16,6 +16,7 @@ var ResourceLoader = Class.extend({
         this.resourceDir = args.resourceDir;
         this.globals = args.globals;
         this.managers = {};
+        this.components = {};
 
         if (!this.router) throw "ComponentManager requires args.router.";
         if (!this.viewManager) throw "ComponentManager requires args.viewManager.";
@@ -31,7 +32,7 @@ var ResourceLoader = Class.extend({
         this.sandbox.console = console;
         this.sandbox.require = require;
         this.sandbox.router = this.router;
-        this.sandbox.components = {};
+        this.sandbox.components = this.components;
         this.sandbox.globals = this.globals;
         this.sandbox.managers = this.managers;
 
@@ -56,6 +57,9 @@ var ResourceLoader = Class.extend({
             },
             registerManager : function(managerArgs) {
                 that.registerManager(managerArgs)
+            },
+            registerComponent : function(componentArgs) {
+                that.registerComponent(componentArgs)
             }
         };
     },
@@ -65,6 +69,13 @@ var ResourceLoader = Class.extend({
         if (!managerArgs.manager) throw "Trying to register manager, id was specified but not the manager object.";
         this.managers[managerArgs.id] = managerArgs.manager;
         console.log("Registered manager with id=" + managerArgs.id);
+    },
+
+    registerComponent : function(componentArgs) {
+        if (!componentArgs.id) throw "Trying to register component, but no id was specified. Id is required.";
+        if (!componentArgs.component) throw "Trying to register component, id was specified but not the component object.";
+        this.components[componentArgs.id] = Component.extend(componentArgs.component);
+        console.log("Registered component with id=" + componentArgs.id);
     },
 
     validatePageArgs : function(pageArgs) {
