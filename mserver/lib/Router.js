@@ -13,6 +13,7 @@ var Router = Class.extend({
         this.mserver = args.mserver;
         this.resourceDir = args.resourceDir;
         this.staticDir = args.staticDir;
+        this.globals = args.globals;
 
         this.pageClassPerPath = {};
         this.rpcClassPerPath = {};
@@ -24,7 +25,8 @@ var Router = Class.extend({
             mserver : this.mserver,
             router : this,
             viewManager : this.viewManager,
-            resourceDir : this.resourceDir
+            resourceDir : this.resourceDir,
+            globals : this.globals
         });
 
         this.sandbox = this.resourceLoader.sandbox;
@@ -90,7 +92,7 @@ var Router = Class.extend({
         }
 
         // If nothing else works, use static files.
-        return new FileServlet(request, response, path, this.staticDir);
+        return new FileServlet(request, response, this.staticDir, path);
 
     }
 

@@ -1,4 +1,4 @@
-Pages.registerRpc({
+mserver.registerRpc({
 
     id : "GetBus",
     path : "/rpc/StoreGame",

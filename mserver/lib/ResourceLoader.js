@@ -14,32 +14,33 @@ var ResourceLoader = Class.extend({
         this.viewManager = args.viewManager;
         this.mserver = args.mserver;
         this.resourceDir = args.resourceDir;
+        this.globals = args.globals;
 
         if (!this.router) throw "ComponentManager requires args.router.";
         if (!this.viewManager) throw "ComponentManager requires args.viewManager.";
         if (!this.resourceDir) throw "ComponentManager requires args.resourceDir.";
-
-        this.fileList = this.findAllResourcePaths(this.resourceDir);
 
         this.sandbox = {};
 
         this.sandbox.Component = Component;
         this.sandbox.Page = Page;
         this.sandbox.RpcResponse = RpcResponse;
-        this.sandbox.Pages = this.createPagesObject();
+        this.sandbox.mserver = this.createInterface();
 
         this.sandbox.console = console;
         this.sandbox.require = require;
         this.sandbox.router = this.router;
         this.sandbox.components = {};
+        this.sandbox.globals = this.globals;
 
         this.context = vm.createContext(this.sandbox);
 
+        this.fileList = this.findAllResourcePaths(this.resourceDir);
         this.includeAllFiles();
 
     },
 
-    createPagesObject : function() {
+    createInterface : function() {
         var that = this;
         return {
             registerPage : function(pageArgs) {
@@ -50,8 +51,15 @@ var ResourceLoader = Class.extend({
             },
             registerWebSocket : function(webSocketArgs) {
                 that.registerWebSocket(webSocketArgs)
+            },
+            registerManager : function(managerArgs) {
+                that.registerManager(managerArgs)
             }
         };
+    },
+
+    registerManager : function(managerArgs) {
+
     },
 
     validatePageArgs : function(pageArgs) {

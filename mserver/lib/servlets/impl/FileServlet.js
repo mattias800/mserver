@@ -32,7 +32,7 @@ var FileServlet = ServletBase.extend({
         var filename = this.filename;
         var that = this;
 
-        var fullFilePath = this.staticDir + filename;
+        var fullFilePath = this.staticDir + "/" + filename;
 
         var fullPath = fullFilePath; //path.join(process.cwd(), pathName);
 

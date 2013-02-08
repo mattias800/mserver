@@ -25,6 +25,7 @@ var Server = Class.extend({
 
         var resourceDir = args && args.resourceDir ? args.resourceDir : "./resource/";
         var staticDir = args && args.staticDir ? args.staticDir : "./static/";
+        var globals = args.globals;
 
         validateDir(resourceDir);
         validateDir(staticDir);
@@ -34,7 +35,8 @@ var Server = Class.extend({
         this.router = new Router({
             mserver : that,
             resourceDir : resourceDir,
-            staticDir : staticDir
+            staticDir : staticDir,
+            globals : globals
         });
 
         if (!this.router) throw "Unable to create Router.";

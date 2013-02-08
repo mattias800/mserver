@@ -1,4 +1,4 @@
-Pages.registerPage(
+mserver.registerPage(
     {
         id : "TestPage",
         path : "/myPage",

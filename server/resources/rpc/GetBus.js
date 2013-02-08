@@ -1,6 +1,6 @@
 var http = require("http");
 
-Pages.registerRpc({
+mserver.registerRpc({
 
     id : "GetBus",
     path : "/rpc/GetBus",
