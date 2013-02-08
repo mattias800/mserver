@@ -15,6 +15,7 @@ var ResourceLoader = Class.extend({
         this.mserver = args.mserver;
         this.resourceDir = args.resourceDir;
         this.globals = args.globals;
+        this.managers = {};
 
         if (!this.router) throw "ComponentManager requires args.router.";
         if (!this.viewManager) throw "ComponentManager requires args.viewManager.";
@@ -32,6 +33,7 @@ var ResourceLoader = Class.extend({
         this.sandbox.router = this.router;
         this.sandbox.components = {};
         this.sandbox.globals = this.globals;
+        this.sandbox.managers = this.managers;
 
         this.context = vm.createContext(this.sandbox);
 
@@ -59,7 +61,10 @@ var ResourceLoader = Class.extend({
     },
 
     registerManager : function(managerArgs) {
-
+        if (!managerArgs.id) throw "Trying to register manager, but no id was specified. Id is required.";
+        if (!managerArgs.manager) throw "Trying to register manager, id was specified but not the manager object.";
+        this.managers[managerArgs.id] = managerArgs.manager;
+        console.log("Registered manager with id=" + managerArgs.id);
     },
 
     validatePageArgs : function(pageArgs) {

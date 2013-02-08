@@ -9,8 +9,7 @@ mserver.registerRpc({
 
         if (urlParameter.id) {
 
-            var games = db.collection("games");
-            games.findOne({id : urlParameter.id }, function(err, game) {
+            managers.GameManager.getGameWithId(urlParameter.id, function(game, err) {
 
                 if (game) {
                     afterDone({
