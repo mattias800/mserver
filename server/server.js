@@ -6,8 +6,8 @@ mongodb.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
 
     if (!err) {
         var server = new mserver.startServer({
-            staticDir : "static",
-            resourceDir : "resources",
+            staticDir : "./static/",
+            resourceDir : "./resources/",
             globals : {
                 db : db
             }
@@ -15,7 +15,6 @@ mongodb.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
     } else {
         console.log("Unable to connect to database.");
     }
-
 
 });
 

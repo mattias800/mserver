@@ -1,5 +1,6 @@
 var http = require('http');
 var url = require("url");
+var fs = require("fs");
 
 var Class = require("./support/resig-class/");
 
@@ -16,7 +17,21 @@ if (Rpc == undefined) throw "Unable to include Rpc.";
 if (RpcResponse == undefined) throw "Unable to include RpcResponse.";
 
 var validateDir = function(dir) {
-    // TODO: Check that dir exists.
+    if (dir.substr(dir.length - 1) != "/") {
+        throw "Must end with /";
+    }
+    if (dir.substr(0, 2) != "./" && dir.substr(0, 3) != "../") {
+        throw "Must start start with ./ or ../";
+    }
+
+    if (!fs.existsSync(dir)) {
+        throw "Specified directory doesn't exist.";
+    }
+
+    var stat = fs.statSync(dir);
+    if (!stat.isDirectory()) {
+        throw "Specified path is not a directory."
+    }
 };
 
 var Server = Class.extend({
@@ -27,8 +42,16 @@ var Server = Class.extend({
         var staticDir = args && args.staticDir ? args.staticDir : "./static/";
         var globals = args.globals;
 
-        validateDir(resourceDir);
-        validateDir(staticDir);
+        try {
+            validateDir(resourceDir);
+        } catch (e) {
+            throw "Invalid resourceDir " + resourceDir + " : " + e;
+        }
+        try {
+            validateDir(staticDir);
+        } catch (e) {
+            throw "Invalid staticDir " + staticDir + " : " + e;
+        }
 
         var that = this;
 
@@ -48,27 +71,32 @@ var Server = Class.extend({
         http.createServer(
             function(request, response) {
 
-                var pathName = url.parse(request.url).pathname;
-                var servletToUse = that.router.createServlet(request, response, pathName);
+                try {
+                    var pathName = url.parse(request.url).pathname;
+                    var servletToUse = that.router.createServlet(request, response, pathName);
 
-                servletToUse.execute(function(result) {
+                    servletToUse.execute(function(result) {
 
-                    response.writeHead(result.code ? result.code : 200, result.header);
+                        response.writeHead(result.code ? result.code : 200, result.header);
 
-                    if (result.fileBuffer !== undefined) {
-                        response.write(result.fileBuffer, "binary");
-                        response.end();
-                    } else {
-                        var bodyToSend = result.body;
-                        if (typeof bodyToSend == "object") {
-                            bodyToSend = JSON.stringify(bodyToSend);
+                        if (result.fileBuffer !== undefined) {
+                            response.write(result.fileBuffer, "binary");
+                            response.end();
+                        } else {
+                            var bodyToSend = result.body;
+                            if (typeof bodyToSend == "object") {
+                                bodyToSend = JSON.stringify(bodyToSend);
+                            }
+                            response.write(bodyToSend);
+                            response.end();
                         }
-                        response.write(bodyToSend);
-                        response.end();
-                    }
 
-                    console.log("Served response for: " + pathName);
-                });
+                        console.log("Served response for: " + pathName);
+                    });
+
+                } catch (e) {
+                    console.error("Error responding: " + e.toString());
+                }
 
             }).listen(port, ipaddr);
 
