@@ -19,7 +19,10 @@ var Router = Class.extend({
         this.rpcClassPerPath = {};
         this.webSocketClassPerPath = {};
 
-        this.viewManager = new ViewManager({router : this});
+        this.viewManager = new ViewManager({
+            router : this,
+            autoRefreshResources : args.autoRefreshResources
+        });
 
         this.resourceLoader = new ResourceLoader({
             mserver : this.mserver,

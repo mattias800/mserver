@@ -54,7 +54,7 @@ var ResourceLoader = Class.extend({
                 that.router.resetAllPaths();
                 that.fileList = that.findAllResourcePaths(that.resourceDir);
                 that.includeAllFiles();
-            }, 1000);
+            }, this.autoRefreshResources);
         }
 
     },

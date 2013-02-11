@@ -23,15 +23,23 @@ var Server = Class.extend({
 
     init : function(args) {
 
+        var that = this;
+
         var resourceDir = args && args.resourceDir ? args.resourceDir : "./resource/";
         var staticDir = args && args.staticDir ? args.staticDir : "./static/";
         var globals = args.globals;
-        var autoRefreshResources = args && args.autoRefreshResources ? args.autoRefreshResources : true;
+        var autoRefreshResources = args && args.autoRefreshResources ? args.autoRefreshResources : 1000;
 
         validateDir(resourceDir);
         validateDir(staticDir);
 
-        var that = this;
+        if (typeof autoRefreshResources !== "undefined" && typeof autoRefreshResources !== "number") throw "autoRefreshResources argument must be a number, if specified.";
+        if (autoRefreshResources) {
+            if (autoRefreshResources < 500) {
+                autoRefreshResources = 500;
+                console.log("autoRefreshResources limited to once per 500 ms.");
+            }
+        }
 
         this.router = new Router({
             mserver : that,
