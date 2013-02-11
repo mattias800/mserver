@@ -42,7 +42,7 @@ var Server = Class.extend({
         if (!this.router) throw "Unable to create Router.";
 
         //  Get the environment variables we need.
-        var ipaddr = process.env.OPENSHIFT_INTERNAL_IP || "127.0.0.1";
+        var ipaddr = process.env.OPENSHIFT_INTERNAL_IP || INADDR_ANY;
         var port = process.env.OPENSHIFT_INTERNAL_PORT || 8090;
 
         http.createServer(
