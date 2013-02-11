@@ -1,6 +1,6 @@
-var Component = require("./Component.js");
+var ComponentBase = require("./ComponentBase.js");
 
-var Page = Component.extend({
+var Page = ComponentBase.extend({
 
     init : function(args) {
         this._super(args);

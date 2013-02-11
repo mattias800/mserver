@@ -2,17 +2,15 @@ mserver.registerComponent({
 
     id : "TestComponent",
 
-    component : {
+    init : function(args) {
+        this.model = args.model;
+    },
 
-        init : function(args) {
-            this.model = args.model;
-        },
+    prepare : function() {
+        //this.setViewPath("resources/components/TestComponent.html");
+        //this.setDefaultView();
 
-        prepare : function() {
-            this.setViewPath("resources/components/TestComponent.html");
-
-            this.setModel(this.model);
-        }
+        this.setModel(this.model);
     }
 
 });

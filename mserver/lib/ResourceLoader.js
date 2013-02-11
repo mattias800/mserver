@@ -9,6 +9,7 @@ var RpcResponse = require("./rpc/RpcResponse.js");
 var ResourceLoader = Class.extend({
 
     init : function(args) {
+        var that = this;
 
         this.router = args.router;
         this.viewManager = args.viewManager;
@@ -38,6 +39,9 @@ var ResourceLoader = Class.extend({
 
         this.context = vm.createContext(this.sandbox);
 
+        this.currentIncludeDir = undefined;
+        this.currentIncludeFile = undefined;
+
         this.fileList = this.findAllResourcePaths(this.resourceDir);
         this.includeAllFiles();
 
@@ -66,15 +70,15 @@ var ResourceLoader = Class.extend({
 
     registerManager : function(managerArgs) {
         if (!managerArgs.id) throw "Trying to register manager, but no id was specified. Id is required.";
-        if (!managerArgs.manager) throw "Trying to register manager, id was specified but not the manager object.";
-        this.managers[managerArgs.id] = managerArgs.manager;
+        this.managers[managerArgs.id] = managerArgs;
         console.log("Registered manager with id=" + managerArgs.id);
     },
 
     registerComponent : function(componentArgs) {
         if (!componentArgs.id) throw "Trying to register component, but no id was specified. Id is required.";
-        if (!componentArgs.component) throw "Trying to register component, id was specified but not the component object.";
-        this.components[componentArgs.id] = Component.extend(componentArgs.component);
+        componentArgs.componentPath = this.currentIncludeDir;
+        componentArgs.componentFileName = this.currentIncludeFile;
+        this.components[componentArgs.id] = Component.extend(componentArgs);
         console.log("Registered component with id=" + componentArgs.id);
     },
 
@@ -157,7 +161,7 @@ var ResourceLoader = Class.extend({
                 }
             } else if (stat.isFile()) {
                 if (that.fileNameIsJsFile(file)) {
-                    fileList.push(fullFilePath);
+                    fileList.push({path : dir, file : file});
                 }
             }
         }
@@ -172,8 +176,11 @@ var ResourceLoader = Class.extend({
         }
     },
 
-    includeFile : function(file) {
+    includeFile : function(fileObj) {
+        var file = fileObj.path + "/" + fileObj.file;
         var code = fs.readFileSync(fs.realpathSync(file), "utf8");
+        this.currentIncludeDir = fileObj.path + "/";
+        this.currentIncludeFile = fileObj.file;
         vm.runInContext(code, this.context, file);
     },
 
