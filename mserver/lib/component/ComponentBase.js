@@ -1,4 +1,4 @@
-var mcomponent = require('../mcomponent.js');
+var mcomponent = require('../support/mcomponent');
 
 var ComponentBase = Class.extend({
 

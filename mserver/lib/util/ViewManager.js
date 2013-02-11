@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-var mcomponent = require('../mcomponent.js');
+var mcomponent = require('../support/mcomponent');
 
 var ViewManager = Class.extend({
 
