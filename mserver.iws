@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a1ce67a-4527-416d-a33a-81fbd65eda58" name="Default" comment="Added validation of resourceDir and staticDir.">
+    <list default="true" id="6a1ce67a-4527-416d-a33a-81fbd65eda58" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mserver.iws" afterPath="$PROJECT_DIR$/mserver.iws" />
     </list>
     <ignored path="mserver.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360615729579" ignored="false" />
+    <file path="/Dummy.txt" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360615765614" ignored="false" />
     <file path="/ComponentManager.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360325091752" ignored="false" />
     <file path="/TestPage.js" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360104585817" ignored="false" />
     <file path="/a.dummy" changelist="6a1ce67a-4527-416d-a33a-81fbd65eda58" time="1360412093652" ignored="false" />
@@ -98,7 +98,7 @@
       <file leaf-file-name="ResourceLoader.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mserver/lib/ResourceLoader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="73" selection-start="5533" selection-end="5533" vertical-scroll-proportion="0.44006568">
+            <state line="152" column="73" selection-start="5533" selection-end="5533" vertical-scroll-proportion="0.44078946">
               <folding />
             </state>
           </provider>
@@ -525,7 +525,11 @@
       <created>1360411867393</created>
       <updated>1360411867393</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Project files. God damn IntelliJ.">
+      <created>1360615767171</created>
+      <updated>1360615767171</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -595,7 +599,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added validation of resourceDir and staticDir." />
+    <option name="LAST_COMMIT_MESSAGE" value="Project files. God damn IntelliJ." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -626,6 +630,7 @@
     <MESSAGE value="Adding support for WebSocket." />
     <MESSAGE value="Project files." />
     <MESSAGE value="Added validation of resourceDir and staticDir." />
+    <MESSAGE value="Project files. God damn IntelliJ." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -731,7 +736,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/mserver/lib/ResourceLoader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="73" selection-start="5533" selection-end="5533" vertical-scroll-proportion="0.44006568">
+        <state line="152" column="73" selection-start="5533" selection-end="5533" vertical-scroll-proportion="0.44078946">
           <folding />
         </state>
       </provider>
