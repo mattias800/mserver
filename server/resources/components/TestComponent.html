@@ -1,7 +1,14 @@
+<style type="text/css">
+    #output {
+        border: 1px solid black;
+    }
+</style>
+
 Bajs!<br/>
 Name: {{ user.name }}<br/>
 Age: {{ user.age }}<br/>
 
+<div id="output"></div>
 
 <script type="text/javascript">
 
@@ -11,7 +18,7 @@ Age: {{ user.age }}<br/>
 
     connection.onopen = function() {
         console.log("Websocket connection open!");
-        connection.send('Ping'); // Send the message 'Ping' to the server
+        send('Ping'); // Send the message 'Ping' to the server
     };
 
     // Log errors
@@ -21,7 +28,17 @@ Age: {{ user.age }}<br/>
 
     // Log messages from the server
     connection.onmessage = function(e) {
-        console.log('Server: ' + e.data);
+        logga('Server: ' + e.data);
     };
+
+    function send(message) {
+        connection.send(message);
+        logga("You: " + message);
+    }
+
+    function logga(me) {
+        console.log(me);
+        document.getElementById("output").innerHTML += me + "<br/>";
+    }
 
 </script>
