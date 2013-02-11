@@ -12,11 +12,31 @@ var FileServlet = ServletBase.extend({
         this._super(request, response);
         this.staticDir = staticDir;
         this.filename = filename;
+        this.fullFilePath = this.staticDir + "/" + filename;
         if (!this.staticDir) throw "FileServlet must get staticDir as argument.";
         if (!this.filename) throw "FileServlet must get filename as argument.";
     },
 
-    fileExists : function(pathToFile, cb) {
+    fileExists : function(callback) {
+        var existObj;
+        if (typeof fs.exists == "function") {
+            existObj = fs;
+        } else if (typeof path.exists) {
+            existObj = path;
+        } else {
+            throw "Neither fs.exists nor path.exists are usable.";
+        }
+
+        return existObj.exists(this.fullFilePath, function(exists) {
+            if (exists) {
+                callback(true);
+            } else {
+                callback(false);
+            }
+        });
+    },
+
+    _fileExists : function(pathToFile, cb) {
         if (typeof fs.exists == "function") {
             fs.exists(pathToFile, cb);
         } else if (typeof path.exists) {
@@ -32,20 +52,19 @@ var FileServlet = ServletBase.extend({
         var filename = this.filename;
         var that = this;
 
-        var fullFilePath = this.staticDir + "/" + filename;
 
-        var fullPath = fullFilePath; //path.join(process.cwd(), pathName);
+        var fullPath = this.fullFilePath; //path.join(process.cwd(), pathName);
 
-        this.fileExists(fullPath, function(exists) {
+        this._fileExists(fullPath, function(exists) {
             if (!exists) {
-                console.log("File does not exist, redirecting to NotFoundServlet: " + fullFilePath);
+                console.log("File does not exist, redirecting to NotFoundServlet: " + fullPath);
                 that.createRedirectionServlet(NotFoundServlet).execute(afterDone);
             } else {
                 var contentHandler = new ContentHandler();
 
                 fs.readFile(fullPath, "binary", function(err, file) {
                     if (err) {
-                        console.log("File exists, but cannot read it: " + fullFilePath);
+                        console.log("File exists, but cannot read it: " + fullPath);
                         afterDone({
                             code : 500,
                             header : {"Content-Type" : "text/plain"},
@@ -54,7 +73,7 @@ var FileServlet = ServletBase.extend({
                     } else {
                         afterDone({
                             code : 200,
-                            header : contentHandler.getHeaderForPath(fullFilePath),
+                            header : contentHandler.getHeaderForPath(fullPath),
                             fileBuffer : file
                         });
                     }

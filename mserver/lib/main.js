@@ -49,25 +49,32 @@ var Server = Class.extend({
             function(request, response) {
 
                 var pathName = url.parse(request.url).pathname;
-                var servletToUse = that.router.createServlet(request, response, pathName);
 
-                servletToUse.execute(function(result) {
+                that.router.createServlet(request, response, pathName, function(servletToUse) {
 
-                    response.writeHead(result.code ? result.code : 200, result.header);
+                    var start = new Date();
 
-                    if (result.fileBuffer !== undefined) {
-                        response.write(result.fileBuffer, "binary");
-                        response.end();
-                    } else {
-                        var bodyToSend = result.body;
-                        if (typeof bodyToSend == "object") {
-                            bodyToSend = JSON.stringify(bodyToSend);
+                    servletToUse.execute(function(result) {
+
+                        response.writeHead(result.code ? result.code : 200, result.header);
+
+                        if (result.fileBuffer !== undefined) {
+                            response.write(result.fileBuffer, "binary");
+                            response.end();
+                        } else {
+                            var bodyToSend = result.body;
+                            if (typeof bodyToSend == "object") {
+                                bodyToSend = JSON.stringify(bodyToSend);
+                            }
+                            response.write(bodyToSend);
+                            response.end();
                         }
-                        response.write(bodyToSend);
-                        response.end();
-                    }
 
-                    console.log("Served response for: " + pathName);
+                        var end = new Date();
+                        var time = end.getTime() - start.getTime();
+                        console.log("Served response in " + time + " ms for: " + pathName);
+                    });
+
                 });
 
             }).listen(port, ipaddr);

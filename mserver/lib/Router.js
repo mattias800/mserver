@@ -64,35 +64,44 @@ var Router = Class.extend({
         return this.pageClassPerPath[path] || this.rpcClassPerPath[path];
     },
 
-    createServlet : function(request, response, path) {
+    createServlet : function(request, response, path, callback) {
+
+        var that = this;
 
         if (!path) path = "/";
 
         var PageClass = this.pageClassPerPath[path];
 
         if (PageClass) {
-            return new PageServlet(request, response, PageClass, this.resourceLoader);
+            return callback(new PageServlet(request, response, PageClass, this.resourceLoader));
         }
 
         var RpcClass = this.rpcClassPerPath[path];
 
         if (RpcClass) {
-            return new RpcServlet(request, response, RpcClass, this.resourceLoader);
+            return callback(new RpcServlet(request, response, RpcClass, this.resourceLoader));
         }
 
         var WebSocketClass = this.webSocketClassPerPath[path];
 
         if (WebSocketClass) {
-            return new WebSocketServlet(request, response, WebSocketClass, this.resourceLoader);
+            return callback(new WebSocketServlet(request, response, WebSocketClass, this.resourceLoader));
         }
 
         if (path == "/") {
             // Default to index.html in root, when no Page has been registered there.
-            return new FileServlet(request, response, this.staticDir, "index.html");
+            return callback(new FileServlet(request, response, this.staticDir, "index.html"));
         }
 
         // If nothing else works, use static files.
-        return new FileServlet(request, response, this.staticDir, path);
+        var fileServlet = new FileServlet(request, response, this.staticDir, path);
+        fileServlet.fileExists(function(exists) {
+            if (exists) {
+                return callback(fileServlet);
+            } else {
+                return callback(new FileServlet(request, response, that.staticDir, "404.html"));
+            }
+        });
 
     }
 
