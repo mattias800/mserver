@@ -24,6 +24,13 @@ The web framework. Check this out if you wanna know how mserver works.
 
 An example web application that runs in mserver on Node.
 This is the application that I use to test things out, so it doesn't really look very nice :)
+It requires websocket module.
+
+To run it:
+
+	$ cd server
+	$ npm install websocket
+	$ node server.js
 
 Development
 ===========

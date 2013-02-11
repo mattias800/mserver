@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="52a56dd3-b1e4-458b-8999-77340d49cde1" name="Default" comment="Updated README.md.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mserver/README.md" afterPath="$PROJECT_DIR$/mserver/README.md" />
+    <list default="true" id="52a56dd3-b1e4-458b-8999-77340d49cde1" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/mserver/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mserver.iws" afterPath="$PROJECT_DIR$/mserver.iws" />
     </list>
     <ignored path="mserver.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360621931005" ignored="false" />
+    <file path="/Dummy.txt" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360621940698" ignored="false" />
     <file path="/ResourceLoader.js" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360616899318" ignored="false" />
     <file path="/main.js" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360597982172" ignored="false" />
     <file path="/server.js" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360597250864" ignored="false" />
@@ -30,7 +30,7 @@
     <file path="/WebSocketConnection.js" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360596246215" ignored="false" />
     <file path="/TestComponent.html" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360616260568" ignored="false" />
     <file path="/package.json" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360620938579" ignored="false" />
-    <file path="/README.md" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360621921357" ignored="false" />
+    <file path="/README.md" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360622028201" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,9 +126,9 @@
         </entry>
       </file>
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mserver/README.md">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="2" selection-start="566" selection-end="566" vertical-scroll-proportion="0.42592594">
+            <state line="26" column="29" selection-start="746" selection-end="746" vertical-scroll-proportion="0.4814815">
               <folding />
             </state>
           </provider>
@@ -197,7 +197,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/server/server.js" />
         <option value="$PROJECT_DIR$/mserver/lib/websocket/WebSocket.js" />
         <option value="$PROJECT_DIR$/mserver/lib/servlets/impl/WebSocketServlet.js" />
         <option value="$PROJECT_DIR$/mserver/lib/Router.js" />
@@ -213,6 +212,7 @@
         <option value="$PROJECT_DIR$/mserver/lib/util/ViewManager.js" />
         <option value="$PROJECT_DIR$/mserver/package.json" />
         <option value="$PROJECT_DIR$/mserver/README.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -279,24 +279,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -316,6 +298,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/mserver/lib/support" />
       <recent name="$PROJECT_DIR$/mserver/lib" />
       <recent name="$PROJECT_DIR$/server" />
@@ -504,7 +487,11 @@
       <created>1360621608634</created>
       <updated>1360621608634</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Updated README.md.">
+      <created>1360621942811</created>
+      <updated>1360621942811</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -573,7 +560,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correct repository URL." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -606,6 +593,7 @@
     <MESSAGE value="Removed some debug logging i websocket base.&#10;Fixed template autopath." />
     <MESSAGE value="Using mcomponent official package, instead of just mcomponent.js." />
     <MESSAGE value="Correct repository URL." />
+    <MESSAGE value="Updated README.md." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -720,9 +708,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mserver/README.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="2" selection-start="566" selection-end="566" vertical-scroll-proportion="0.42592594">
+        <state line="26" column="29" selection-start="746" selection-end="746" vertical-scroll-proportion="0.4814815">
           <folding />
         </state>
       </provider>
