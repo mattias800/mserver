@@ -10,7 +10,8 @@ mongodb.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
             resourceDir : "resources",
             globals : {
                 db : db
-            }
+            },
+            autoRefreshResources : false
         });
     } else {
         console.log("Unable to connect to database.");

@@ -1,6 +1,7 @@
 var FileServlet = require("./servlets/impl/FileServlet.js");
 var PageServlet = require("./servlets/impl/PageServlet.js");
 var RpcServlet = require("./servlets/impl/RpcServlet.js");
+var WebSocketServlet = require("./servlets/impl/WebSocketServlet.js");
 
 var TestPage = {}; //require("../root/pages/TestPage.js");
 var ResourceLoader = require("./ResourceLoader.js");
@@ -17,7 +18,7 @@ var Router = Class.extend({
 
         this.pageClassPerPath = {};
         this.rpcClassPerPath = {};
-        this.webSocketClassPerPath = {};
+        this.webSocketEndpointObjectPerPath = {};
 
         this.viewManager = new ViewManager({
             router : this,
@@ -30,6 +31,7 @@ var Router = Class.extend({
             viewManager : this.viewManager,
             resourceDir : this.resourceDir,
             globals : this.globals,
+            httpServer : args.httpServer,
             autoRefreshResources : args.autoRefreshResources
         });
 
@@ -57,17 +59,17 @@ var Router = Class.extend({
         this.rpcClassPerPath[path] = rpcClass;
     },
 
-    registerWebSocketAtPath : function(rpcClass, path) {
+    registerWebSocketAtPath : function(webSocketServerObject, path) {
         // TODO: Warn if path is already in use!
         if (this.pageClassPerPath[path]) throw "Trying to register web socket at path " + path + " but there is already a page registered on that path.";
         if (this.rpcClassPerPath[path]) throw "Trying to register web socket at path " + path + " but there is already an RPC registered on that path.";
-        this.webSocketClassPerPath[path] = rpcClass;
+        this.webSocketEndpointObjectPerPath[path] = webSocketServerObject;
     },
 
     resetAllPaths : function() {
         this.pageClassPerPath = {};
         this.rpcClassPerPath = {};
-        this.webSocketClassPerPath = {};
+        //this.webSocketEndpointObjectPerPath = {};
     },
 
     pathIsInUse : function(path) {
@@ -92,7 +94,7 @@ var Router = Class.extend({
             return callback(new RpcServlet(request, response, RpcClass, this.resourceLoader));
         }
 
-        var WebSocketClass = this.webSocketClassPerPath[path];
+        var WebSocketClass = this.webSocketEndpointObjectPerPath[path];
 
         if (WebSocketClass) {
             return callback(new WebSocketServlet(request, response, WebSocketClass, this.resourceLoader));
@@ -112,6 +114,8 @@ var Router = Class.extend({
                 return callback(new FileServlet(request, response, that.staticDir, "404.html"));
             }
         });
+
+        return undefined;
 
     }
 

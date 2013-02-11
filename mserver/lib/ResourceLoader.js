@@ -5,12 +5,14 @@ var Page = require("./component/Page.js");
 var Rpc = require("./rpc/Rpc.js");
 var Component = require("./component/Component.js");
 var RpcResponse = require("./rpc/RpcResponse.js");
+var WebSocketServer = require("./websocket/WebSocketServer.js");
 
 var ResourceLoader = Class.extend({
 
     init : function(args) {
         var that = this;
 
+        this.httpServer = args.httpServer;
         this.router = args.router;
         this.viewManager = args.viewManager;
         this.mserver = args.mserver;
@@ -138,15 +140,20 @@ var ResourceLoader = Class.extend({
     },
 
     registerWebSocket : function(webSocketArgs) {
-        var path = webSocket.path;
         try {
             this.validateWebSocketArgs(webSocketArgs);
         } catch (e) {
-            throw "Trying to register WebSocket at path=" + path + " but: " + e;
+            throw "Trying to register WebSocketServer at path=" + path + " but: " + e;
         }
-        var WebSocketClass = WebSocket.extend(rpcArgs);
-        this.router.registerWebSocketAtPath(RpcClass, path);
-        console.log("Registered WebSocket at " + path);
+        var path = webSocketArgs.path;
+        var WebSocketServerClass = WebSocketServer.extend(webSocketArgs);
+
+        var webSocketServerObject = new WebSocketServerClass({
+            httpServer : this.httpServer
+        });
+
+        this.router.registerWebSocketAtPath(webSocketServerObject, path);
+        if (this.logRegistrations) console.log("Registered WebSocket at " + path);
     },
 
     getRouter : function() {

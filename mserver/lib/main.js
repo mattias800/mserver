@@ -28,7 +28,7 @@ var Server = Class.extend({
         var resourceDir = args && args.resourceDir ? args.resourceDir : "./resource/";
         var staticDir = args && args.staticDir ? args.staticDir : "./static/";
         var globals = args.globals;
-        var autoRefreshResources = args && args.autoRefreshResources ? args.autoRefreshResources : 1000;
+        var autoRefreshResources = args && args.autoRefreshResources ? args.autoRefreshResources : undefined;
 
         validateDir(resourceDir);
         validateDir(staticDir);
@@ -41,21 +41,13 @@ var Server = Class.extend({
             }
         }
 
-        this.router = new Router({
-            mserver : that,
-            resourceDir : resourceDir,
-            staticDir : staticDir,
-            globals : globals,
-            autoRefreshResources : autoRefreshResources
-        });
-
-        if (!this.router) throw "Unable to create Router.";
+        this.router = undefined;
 
         //  Get the environment variables we need.
         var ipaddr = process.env.OPENSHIFT_INTERNAL_IP || "0.0.0.0";
         var port = process.env.OPENSHIFT_INTERNAL_PORT || 8090;
 
-        http.createServer(
+        var httpServer = http.createServer(
             function(request, response) {
 
                 var pathName = url.parse(request.url).pathname;
@@ -91,6 +83,16 @@ var Server = Class.extend({
 
         console.log('Started mserver at ' + ipaddr + ":" + port);
 
+        this.router = new Router({
+            httpServer : httpServer,
+            mserver : that,
+            resourceDir : resourceDir,
+            staticDir : staticDir,
+            globals : globals,
+            autoRefreshResources : autoRefreshResources
+        });
+
+        if (!this.router) throw "Unable to create Router.";
 
     }
 

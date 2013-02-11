@@ -1,3 +1,27 @@
 Bajs!<br/>
 Name: {{ user.name }}<br/>
 Age: {{ user.age }}<br/>
+
+
+<script type="text/javascript">
+
+    console.log("Opening websocket connection...");
+
+    var connection = new WebSocket('ws://10.10.30.6:8090/websocket/Chat', ["echo-protocol"]);
+
+    connection.onopen = function() {
+        console.log("Websocket connection open!");
+        connection.send('Ping'); // Send the message 'Ping' to the server
+    };
+
+    // Log errors
+    connection.onerror = function(error) {
+        console.log('WebSocket Error ' + error.toString());
+    };
+
+    // Log messages from the server
+    connection.onmessage = function(e) {
+        console.log('Server: ' + e.data);
+    };
+
+</script>

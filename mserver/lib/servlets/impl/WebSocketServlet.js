@@ -7,7 +7,9 @@ var WebSocketServlet = ServletBase.extend({
         this._super(request, response);
         if (WebSocketClass == undefined) throw "WebSocketServlet initialization error, got undefined WebSocketClass.";
         this.WebSocketClass = WebSocketClass;
-        this.webSocketObj = new WebSocketClass({resourceLoader : componentManager});
+
+        // Do nothing! WebSockets are instantiated at load, then never again!
+        //this.webSocketObj = new WebSocketClass({resourceLoader : componentManager});
 
         // Init WebSocket here.
         // Setup onMessage, etc, on webSocketObj.
@@ -19,4 +21,4 @@ var WebSocketServlet = ServletBase.extend({
 
 });
 
-module.exports = PageServlet;
+module.exports = WebSocketServlet;
