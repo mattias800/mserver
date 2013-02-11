@@ -1,0 +1,5 @@
+var WebSocketConnection = Class.extend({
+
+
+
+});

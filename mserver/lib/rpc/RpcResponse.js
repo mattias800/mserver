@@ -42,4 +42,8 @@ RpcResponse.createIncompleteParameters = function() {
     return new RpcResponse({resultType : "INCOMPLETE_PARAMETERS"});
 };
 
+RpcResponse.createNoObjectWithSpecifiedId = function() {
+    return new RpcResponse({resultType : "NO_OBJECT_WITH_SPECIFIED_ID"});
+};
+
 module.exports = RpcResponse;

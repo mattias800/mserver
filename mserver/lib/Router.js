@@ -1,6 +1,7 @@
 var FileServlet = require("./servlets/impl/FileServlet.js");
 var PageServlet = require("./servlets/impl/PageServlet.js");
 var RpcServlet = require("./servlets/impl/RpcServlet.js");
+var WebSocketServlet = require("./servlets/impl/WebSocketServlet.js");
 
 var TestPage = {}; //require("../root/pages/TestPage.js");
 var ResourceLoader = require("./ResourceLoader.js");
@@ -17,16 +18,21 @@ var Router = Class.extend({
 
         this.pageClassPerPath = {};
         this.rpcClassPerPath = {};
-        this.webSocketClassPerPath = {};
+        this.webSocketEndpointObjectPerPath = {};
 
-        this.viewManager = new ViewManager({router : this});
+        this.viewManager = new ViewManager({
+            router : this,
+            autoRefreshResources : args.autoRefreshResources
+        });
 
         this.resourceLoader = new ResourceLoader({
             mserver : this.mserver,
             router : this,
             viewManager : this.viewManager,
             resourceDir : this.resourceDir,
-            globals : this.globals
+            globals : this.globals,
+            httpServer : args.httpServer,
+            autoRefreshResources : args.autoRefreshResources
         });
 
         this.sandbox = this.resourceLoader.sandbox;
@@ -53,46 +59,63 @@ var Router = Class.extend({
         this.rpcClassPerPath[path] = rpcClass;
     },
 
-    registerWebSocketAtPath : function(rpcClass, path) {
+    registerWebSocketAtPath : function(webSocketServerObject, path) {
         // TODO: Warn if path is already in use!
-        if (this.pageClassPerPath[path]) throw "Trying to register RPC at path " + path + " but there is already a page registered on that path.";
-        if (this.rpcClassPerPath[path]) throw "Trying to register RPC at path " + path + " but there is already an RPC registered on that path.";
-        this.webSocketClassPerPath[path] = rpcClass;
+        if (this.pageClassPerPath[path]) throw "Trying to register web socket at path " + path + " but there is already a page registered on that path.";
+        if (this.rpcClassPerPath[path]) throw "Trying to register web socket at path " + path + " but there is already an RPC registered on that path.";
+        this.webSocketEndpointObjectPerPath[path] = webSocketServerObject;
+    },
+
+    resetAllPaths : function() {
+        this.pageClassPerPath = {};
+        this.rpcClassPerPath = {};
+        //this.webSocketEndpointObjectPerPath = {};
     },
 
     pathIsInUse : function(path) {
         return this.pageClassPerPath[path] || this.rpcClassPerPath[path];
     },
 
-    createServlet : function(request, response, path) {
+    createServlet : function(request, response, path, callback) {
+
+        var that = this;
 
         if (!path) path = "/";
 
         var PageClass = this.pageClassPerPath[path];
 
         if (PageClass) {
-            return new PageServlet(request, response, PageClass, this.resourceLoader);
+            return callback(new PageServlet(request, response, PageClass, this.resourceLoader));
         }
 
         var RpcClass = this.rpcClassPerPath[path];
 
         if (RpcClass) {
-            return new RpcServlet(request, response, RpcClass, this.resourceLoader);
+            return callback(new RpcServlet(request, response, RpcClass, this.resourceLoader));
         }
 
-        var WebSocketClass = this.webSocketClassPerPath[path];
+        var WebSocketClass = this.webSocketEndpointObjectPerPath[path];
 
         if (WebSocketClass) {
-            return new WebSocketServlet(request, response, WebSocketClass, this.resourceLoader);
+            return callback(new WebSocketServlet(request, response, WebSocketClass, this.resourceLoader));
         }
 
         if (path == "/") {
             // Default to index.html in root, when no Page has been registered there.
-            return new FileServlet(request, response, this.staticDir, "index.html");
+            return callback(new FileServlet(request, response, this.staticDir, "index.html"));
         }
 
         // If nothing else works, use static files.
-        return new FileServlet(request, response, this.staticDir, path);
+        var fileServlet = new FileServlet(request, response, this.staticDir, path);
+        fileServlet.fileExists(function(exists) {
+            if (exists) {
+                return callback(fileServlet);
+            } else {
+                return callback(new FileServlet(request, response, that.staticDir, "404.html"));
+            }
+        });
+
+        return undefined;
 
     }
 

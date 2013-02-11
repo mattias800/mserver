@@ -1,3 +1,46 @@
+<style type="text/css">
+    #output {
+        border: 1px solid black;
+    }
+</style>
+
 Bajs!<br/>
 Name: {{ user.name }}<br/>
 Age: {{ user.age }}<br/>
+
+Use send(message) in console.
+
+<div id="output"></div>
+
+<script type="text/javascript">
+
+    console.log("Opening websocket connection...");
+
+    var connection = new WebSocket('ws://10.10.30.6:8090/websocket/Chat', ["echo-protocol"]);
+
+    connection.onopen = function() {
+        console.log("Websocket connection open!");
+        send('Ping'); // Send the message 'Ping' to the server
+    };
+
+    // Log errors
+    connection.onerror = function(error) {
+        console.log('WebSocket Error ' + error.toString());
+    };
+
+    // Log messages from the server
+    connection.onmessage = function(e) {
+        logga('Server: ' + e.data);
+    };
+
+    function send(message) {
+        connection.send(message);
+        logga("You: " + message);
+    }
+
+    function logga(me) {
+        console.log(me);
+        document.getElementById("output").innerHTML += me + "<br/>";
+    }
+
+</script>

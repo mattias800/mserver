@@ -17,7 +17,7 @@ mserver.registerRpc({
                     });
                 } else {
                     afterDone({
-                        response : RpcResponse.createWithResultType("NO_SUCH_GAME")
+                        response : RpcResponse.createNoObjectWithSpecifiedId()
                     });
                 }
 

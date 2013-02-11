@@ -1,6 +1,5 @@
 var http = require('http');
 var url = require("url");
-var fs = require("fs");
 
 var Class = require("./support/resig-class/");
 
@@ -17,63 +16,45 @@ if (Rpc == undefined) throw "Unable to include Rpc.";
 if (RpcResponse == undefined) throw "Unable to include RpcResponse.";
 
 var validateDir = function(dir) {
-    if (dir.substr(dir.length - 1) != "/") {
-        throw "Must end with /";
-    }
-    if (dir.substr(0, 2) != "./" && dir.substr(0, 3) != "../") {
-        throw "Must start start with ./ or ../";
-    }
-
-    if (!fs.existsSync(dir)) {
-        throw "Specified directory doesn't exist.";
-    }
-
-    var stat = fs.statSync(dir);
-    if (!stat.isDirectory()) {
-        throw "Specified path is not a directory."
-    }
+    // TODO: Check that dir exists.
 };
 
 var Server = Class.extend({
 
     init : function(args) {
 
+        var that = this;
+
         var resourceDir = args && args.resourceDir ? args.resourceDir : "./resource/";
         var staticDir = args && args.staticDir ? args.staticDir : "./static/";
         var globals = args.globals;
+        var autoRefreshResources = args && args.autoRefreshResources ? args.autoRefreshResources : undefined;
 
-        try {
-            validateDir(resourceDir);
-        } catch (e) {
-            throw "Invalid resourceDir " + resourceDir + " : " + e;
+        validateDir(resourceDir);
+        validateDir(staticDir);
+
+        if (typeof autoRefreshResources !== "undefined" && typeof autoRefreshResources !== "number") throw "autoRefreshResources argument must be a number, if specified.";
+        if (autoRefreshResources) {
+            if (autoRefreshResources < 500) {
+                autoRefreshResources = 500;
+                console.log("autoRefreshResources limited to once per 500 ms.");
+            }
         }
-        try {
-            validateDir(staticDir);
-        } catch (e) {
-            throw "Invalid staticDir " + staticDir + " : " + e;
-        }
 
-        var that = this;
-
-        this.router = new Router({
-            mserver : that,
-            resourceDir : resourceDir,
-            staticDir : staticDir,
-            globals : globals
-        });
-
-        if (!this.router) throw "Unable to create Router.";
+        this.router = undefined;
 
         //  Get the environment variables we need.
-        var ipaddr = process.env.OPENSHIFT_INTERNAL_IP || "127.0.0.1";
+        var ipaddr = process.env.OPENSHIFT_INTERNAL_IP || "0.0.0.0";
         var port = process.env.OPENSHIFT_INTERNAL_PORT || 8090;
 
-        http.createServer(
+        var httpServer = http.createServer(
             function(request, response) {
 
-                try {
-                    var pathName = url.parse(request.url).pathname;
-                    var servletToUse = that.router.createServlet(request, response, pathName);
+                var pathName = url.parse(request.url).pathname;
+
+                that.router.createServlet(request, response, pathName, function(servletToUse) {
+
+                    var start = new Date();
 
                     servletToUse.execute(function(result) {
 
@@ -91,17 +72,27 @@ var Server = Class.extend({
                             response.end();
                         }
 
-                        console.log("Served response for: " + pathName);
+                        var end = new Date();
+                        var time = end.getTime() - start.getTime();
+                        console.log("Served response in " + time + " ms for: " + pathName);
                     });
 
-                } catch (e) {
-                    console.error("Error responding: " + e.toString());
-                }
+                });
 
             }).listen(port, ipaddr);
 
         console.log('Started mserver at ' + ipaddr + ":" + port);
 
+        this.router = new Router({
+            httpServer : httpServer,
+            mserver : that,
+            resourceDir : resourceDir,
+            staticDir : staticDir,
+            globals : globals,
+            autoRefreshResources : autoRefreshResources
+        });
+
+        if (!this.router) throw "Unable to create Router.";
 
     }
 
