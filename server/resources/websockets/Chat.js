@@ -5,7 +5,7 @@ mserver.registerWebSocket({
     protocol : "echo-protocol",
 
     onListening : function() {
-
+        console.log("Listening...");
     },
 
     onRequest : function(request) {
@@ -14,6 +14,7 @@ mserver.registerWebSocket({
 
     onAccept : function(connection) {
         console.log("onAccept");
+        console.log('Peer ' + connection.remoteAddress + ' connected.');
     },
 
     onClose : function(connection) {
@@ -22,7 +23,7 @@ mserver.registerWebSocket({
 
     onText : function(connection, text) {
         console.log("onText", text);
-        connection.sendUTF(text + "?? gay!");
+        this.sendText(connection, text + "?? gay!");
     },
 
     onBinary : function(connection, data) {

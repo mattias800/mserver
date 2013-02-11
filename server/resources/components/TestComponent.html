@@ -14,10 +14,13 @@ Use send(message) in console.
 
 <script type="text/javascript">
 
+    console.log("OK go!...");
+
     console.log("Opening websocket connection...");
 
-    var connection = new WebSocket('ws://10.10.30.6:8090/websocket/Chat', ["echo-protocol"]);
+    var connection = new WebSocket('ws://localhost:8090/websocket/Chat', ["echo-protocol"]);
 
+    console.log(connection);
     connection.onopen = function() {
         console.log("Websocket connection open!");
         send('Ping'); // Send the message 'Ping' to the server
@@ -37,10 +40,12 @@ Use send(message) in console.
         connection.send(message);
         logga("You: " + message);
     }
+    ;
 
     function logga(me) {
         console.log(me);
         document.getElementById("output").innerHTML += me + "<br/>";
     }
+    ;
 
 </script>

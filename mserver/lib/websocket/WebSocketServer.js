@@ -27,11 +27,8 @@ var WebSocketServer = Class.extend({
 
                 var connection = request.accept(that.protocol, request.origin);
 
-                console.log((new Date()) + ' Connection accepted.');
-
                 connection.on('message', function(message) {
                     if (message.type === 'utf8') {
-                        console.log('Received Message: ' + message.utf8Data);
                         that.onText(connection, message.utf8Data);
                     }
                     else if (message.type === 'binary') {
@@ -41,7 +38,6 @@ var WebSocketServer = Class.extend({
                 });
 
                 connection.on('close', function(reasonCode, description) {
-                    console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
                     that.onClose(connection, request, reasonCode, description);
                 });
 

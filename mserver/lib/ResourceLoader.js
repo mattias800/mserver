@@ -173,11 +173,11 @@ var ResourceLoader = Class.extend({
 
         for (var i = 0; i < files.length; i++) {
             file = files[i];
-            var fullFilePath = dir + "/" + file;
+            var fullFilePath = dir + file;
 
             var stat = fs.statSync(fullFilePath);
             if (stat.isDirectory()) {
-                var childFiles = this.findAllResourcePaths(fullFilePath);
+                var childFiles = this.findAllResourcePaths(fullFilePath + "/");
                 for (var j = 0; j < childFiles.length; j++) {
                     fileList.push(childFiles[j]);
 
@@ -202,7 +202,7 @@ var ResourceLoader = Class.extend({
     includeFile : function(fileObj) {
         var file = fileObj.path + "/" + fileObj.file;
         var code = fs.readFileSync(fs.realpathSync(file), "utf8");
-        this.currentIncludeDir = fileObj.path + "/";
+        this.currentIncludeDir = fileObj.path;
         this.currentIncludeFile = fileObj.file;
         vm.runInContext(code, this.context, file);
     },
