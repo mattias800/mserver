@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52a56dd3-b1e4-458b-8999-77340d49cde1" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/mserver/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mserver.iws" afterPath="$PROJECT_DIR$/mserver.iws" />
     </list>
     <ignored path="mserver.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360621940698" ignored="false" />
+    <file path="/Dummy.txt" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360622036257" ignored="false" />
     <file path="/ResourceLoader.js" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360616899318" ignored="false" />
     <file path="/main.js" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360597982172" ignored="false" />
     <file path="/server.js" changelist="52a56dd3-b1e4-458b-8999-77340d49cde1" time="1360597250864" ignored="false" />
@@ -128,7 +127,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="29" selection-start="746" selection-end="746" vertical-scroll-proportion="0.4814815">
+            <state line="15" column="0" selection-start="382" selection-end="382" vertical-scroll-proportion="0.2777778">
               <folding />
             </state>
           </provider>
@@ -262,6 +261,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mserver" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -491,7 +504,11 @@
       <created>1360621942811</created>
       <updated>1360621942811</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Moved README.md.">
+      <created>1360622037781</created>
+      <updated>1360622037781</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -560,7 +577,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved README.md." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -594,6 +611,7 @@
     <MESSAGE value="Using mcomponent official package, instead of just mcomponent.js." />
     <MESSAGE value="Correct repository URL." />
     <MESSAGE value="Updated README.md." />
+    <MESSAGE value="Moved README.md." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -710,7 +728,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="29" selection-start="746" selection-end="746" vertical-scroll-proportion="0.4814815">
+        <state line="15" column="0" selection-start="382" selection-end="382" vertical-scroll-proportion="0.2777778">
           <folding />
         </state>
       </provider>
