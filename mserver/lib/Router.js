@@ -26,7 +26,8 @@ var Router = Class.extend({
             router : this,
             viewManager : this.viewManager,
             resourceDir : this.resourceDir,
-            globals : this.globals
+            globals : this.globals,
+            autoRefreshResources : args.autoRefreshResources
         });
 
         this.sandbox = this.resourceLoader.sandbox;
@@ -55,9 +56,15 @@ var Router = Class.extend({
 
     registerWebSocketAtPath : function(rpcClass, path) {
         // TODO: Warn if path is already in use!
-        if (this.pageClassPerPath[path]) throw "Trying to register RPC at path " + path + " but there is already a page registered on that path.";
-        if (this.rpcClassPerPath[path]) throw "Trying to register RPC at path " + path + " but there is already an RPC registered on that path.";
+        if (this.pageClassPerPath[path]) throw "Trying to register web socket at path " + path + " but there is already a page registered on that path.";
+        if (this.rpcClassPerPath[path]) throw "Trying to register web socket at path " + path + " but there is already an RPC registered on that path.";
         this.webSocketClassPerPath[path] = rpcClass;
+    },
+
+    resetAllPaths : function() {
+        this.pageClassPerPath = {};
+        this.rpcClassPerPath = {};
+        this.webSocketClassPerPath = {};
     },
 
     pathIsInUse : function(path) {

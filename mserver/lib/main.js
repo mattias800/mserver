@@ -26,6 +26,7 @@ var Server = Class.extend({
         var resourceDir = args && args.resourceDir ? args.resourceDir : "./resource/";
         var staticDir = args && args.staticDir ? args.staticDir : "./static/";
         var globals = args.globals;
+        var autoRefreshResources = args && args.autoRefreshResources ? args.autoRefreshResources : true;
 
         validateDir(resourceDir);
         validateDir(staticDir);
@@ -36,7 +37,8 @@ var Server = Class.extend({
             mserver : that,
             resourceDir : resourceDir,
             staticDir : staticDir,
-            globals : globals
+            globals : globals,
+            autoRefreshResources : autoRefreshResources
         });
 
         if (!this.router) throw "Unable to create Router.";

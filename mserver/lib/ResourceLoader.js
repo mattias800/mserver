@@ -18,6 +18,7 @@ var ResourceLoader = Class.extend({
         this.globals = args.globals;
         this.managers = {};
         this.components = {};
+        this.autoRefreshResources = args.autoRefreshResources;
 
         if (!this.router) throw "ComponentManager requires args.router.";
         if (!this.viewManager) throw "ComponentManager requires args.viewManager.";
@@ -42,8 +43,19 @@ var ResourceLoader = Class.extend({
         this.currentIncludeDir = undefined;
         this.currentIncludeFile = undefined;
 
-        this.fileList = this.findAllResourcePaths(this.resourceDir);
-        this.includeAllFiles();
+        this.logRegistrations = true;
+
+        that.fileList = that.findAllResourcePaths(that.resourceDir);
+        that.includeAllFiles();
+
+        if (this.autoRefreshResources) {
+            this.logRegistrations = false;
+            setInterval(function() {
+                that.router.resetAllPaths();
+                that.fileList = that.findAllResourcePaths(that.resourceDir);
+                that.includeAllFiles();
+            }, 1000);
+        }
 
     },
 
@@ -71,15 +83,16 @@ var ResourceLoader = Class.extend({
     registerManager : function(managerArgs) {
         if (!managerArgs.id) throw "Trying to register manager, but no id was specified. Id is required.";
         this.managers[managerArgs.id] = managerArgs;
-        console.log("Registered manager with id=" + managerArgs.id);
+        if (this.logRegistrations) console.log("Registered manager with id=" + managerArgs.id);
     },
 
     registerComponent : function(componentArgs) {
         if (!componentArgs.id) throw "Trying to register component, but no id was specified. Id is required.";
         componentArgs.componentPath = this.currentIncludeDir;
         componentArgs.componentFileName = this.currentIncludeFile;
+        componentArgs.defaultViewFileName = this.getViewFileName(this.currentIncludeDir, this.currentIncludeFile);
         this.components[componentArgs.id] = Component.extend(componentArgs);
-        console.log("Registered component with id=" + componentArgs.id);
+        if (this.logRegistrations) console.log("Registered component with id=" + componentArgs.id);
     },
 
     validatePageArgs : function(pageArgs) {
@@ -94,9 +107,12 @@ var ResourceLoader = Class.extend({
         } catch (e) {
             throw "Trying to register page at path=" + path + " but: " + e;
         }
+        pageArgs.componentPath = this.currentIncludeDir;
+        pageArgs.componentFileName = this.currentIncludeFile;
+        pageArgs.defaultViewFileName = this.getViewFileName(this.currentIncludeDir, this.currentIncludeFile);
         var PathClass = Page.extend(pageArgs);
         this.router.registerPageAtPath(PathClass, path);
-        console.log("Registered page at " + path);
+        if (this.logRegistrations) console.log("Registered page at " + path);
     },
 
     validateRpcArgs : function(rpcArgs) {
@@ -113,7 +129,7 @@ var ResourceLoader = Class.extend({
         }
         var RpcClass = Rpc.extend(rpcArgs);
         this.router.registerRpcAtPath(RpcClass, path);
-        console.log("Registered RPC at " + path);
+        if (this.logRegistrations) console.log("Registered RPC at " + path);
     },
 
     validateWebSocketArgs : function(webSocketArgs) {
@@ -184,6 +200,17 @@ var ResourceLoader = Class.extend({
         vm.runInContext(code, this.context, file);
     },
 
+    /**
+     *
+     * @param dir Ex: resources/components/
+     * @param file Ex: MainComponent.js
+     */
+    getViewFileName : function(dir, file) {
+        var files = file.split(".");
+        files[files.length - 1 ] = "html";
+        return dir + files.join(".");
+    },
+
     fileNameIsJsFile : function(file) {
         var spl = file.split(".");
         if (spl[1] == "js") {
@@ -191,7 +218,6 @@ var ResourceLoader = Class.extend({
         } else {
             return false;
         }
-
     }
 
 });

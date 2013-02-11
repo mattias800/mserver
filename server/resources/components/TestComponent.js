@@ -7,9 +7,6 @@ mserver.registerComponent({
     },
 
     prepare : function() {
-        //this.setViewPath("resources/components/TestComponent.html");
-        //this.setDefaultView();
-
         this.setModel(this.model);
     }
 

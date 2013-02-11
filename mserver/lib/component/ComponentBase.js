@@ -3,7 +3,6 @@ var mcomponent = require('../mcomponent.js');
 var ComponentBase = Class.extend({
 
     init : function(args) {
-        this.id = args ? args.id : undefined;
 
         // Tree
         this.children = {};
@@ -19,6 +18,13 @@ var ComponentBase = Class.extend({
         // Component
         this.mcomponent = undefined;
 
+        this.verifyIdAndFileName();
+    },
+
+    verifyIdAndFileName : function() {
+        if (this.id + ".js" != this.componentFileName) {
+            throw this.componentFileName + " file name does not match id " + this.id;
+        }
     },
 
     _getComponentManager : function() {
@@ -28,6 +34,7 @@ var ComponentBase = Class.extend({
     _setComponentManager : function(cm) {
         this.resourceLoader = cm;
         this.viewManager = this.resourceLoader.viewManager;
+
         // Set for children as well.
         for (var id in this.children) {
             this.children[id]._setComponentManager(cm);
@@ -39,8 +46,7 @@ var ComponentBase = Class.extend({
     },
 
     setDefaultView : function() {
-        var defaultViewPath = this.getComponentPath() + this.id + ".html";
-        this.setViewPath(defaultViewPath);
+        this.setViewPath(this.defaultViewFileName);
     },
 
     _prepare : function() {
